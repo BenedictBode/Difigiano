@@ -8,12 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		B796639729531D7A0050BA58 /* Difigiano_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796639629531D7A0050BA58 /* Difigiano_AppApp.swift */; };
-		B796639929531D7A0050BA58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796639829531D7A0050BA58 /* ContentView.swift */; };
+		B796639929531D7A0050BA58 /* LeaderBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796639829531D7A0050BA58 /* LeaderBoardView.swift */; };
 		B796639B29531D7C0050BA58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B796639A29531D7C0050BA58 /* Assets.xcassets */; };
 		B796639E29531D7C0050BA58 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B796639D29531D7C0050BA58 /* Preview Assets.xcassets */; };
 		B79663A829531D7C0050BA58 /* Difigiano_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79663A729531D7C0050BA58 /* Difigiano_AppTests.swift */; };
 		B79663B229531D7C0050BA58 /* Difigiano_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79663B129531D7C0050BA58 /* Difigiano_AppUITests.swift */; };
 		B79663B429531D7C0050BA58 /* Difigiano_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79663B329531D7C0050BA58 /* Difigiano_AppUITestsLaunchTests.swift */; };
+		B79663C129531E5D0050BA58 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79663C029531E5D0050BA58 /* MapView.swift */; };
+		B79663C5295320430050BA58 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79663C4295320430050BA58 /* MainView.swift */; };
+		B79663C7295321AD0050BA58 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79663C6295321AD0050BA58 /* Model.swift */; };
+		B79663C9295325D90050BA58 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79663C8295325D90050BA58 /* ProfileView.swift */; };
+		B79663CB2953274F0050BA58 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79663CA2953274F0050BA58 /* User.swift */; };
+		B79663CD295328160050BA58 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79663CC295328160050BA58 /* Post.swift */; };
+		B79663CF29532A810050BA58 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79663CE29532A810050BA58 /* Location.swift */; };
+		B79B0F3C295333EB0076368C /* UnifrakturMaguntia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B79B0F3B2953339B0076368C /* UnifrakturMaguntia.ttf */; };
+		B79B0F3D295333EB0076368C /* UnifrakturMaguntia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B79B0F3B2953339B0076368C /* UnifrakturMaguntia.ttf */; };
+		B79B0F3E295333EE0076368C /* UnifrakturMaguntia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B79B0F3B2953339B0076368C /* UnifrakturMaguntia.ttf */; };
+		B79B0F442953426C0076368C /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B0F432953426C0076368C /* ShopView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +47,7 @@
 /* Begin PBXFileReference section */
 		B796639329531D7A0050BA58 /* Difigiano App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Difigiano App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B796639629531D7A0050BA58 /* Difigiano_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difigiano_AppApp.swift; sourceTree = "<group>"; };
-		B796639829531D7A0050BA58 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B796639829531D7A0050BA58 /* LeaderBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardView.swift; sourceTree = "<group>"; };
 		B796639A29531D7C0050BA58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B796639D29531D7C0050BA58 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B79663A329531D7C0050BA58 /* Difigiano AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Difigiano AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +55,16 @@
 		B79663AD29531D7C0050BA58 /* Difigiano AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Difigiano AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B79663B129531D7C0050BA58 /* Difigiano_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difigiano_AppUITests.swift; sourceTree = "<group>"; };
 		B79663B329531D7C0050BA58 /* Difigiano_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difigiano_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B79663C029531E5D0050BA58 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		B79663C4295320430050BA58 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B79663C6295321AD0050BA58 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B79663C8295325D90050BA58 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B79663CA2953274F0050BA58 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B79663CC295328160050BA58 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		B79663CE29532A810050BA58 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		B79B0F3B2953339B0076368C /* UnifrakturMaguntia.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UnifrakturMaguntia.ttf; sourceTree = "<group>"; };
+		B79B0F402953352C0076368C /* Difigiano-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Difigiano-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		B79B0F432953426C0076368C /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +115,11 @@
 		B796639529531D7A0050BA58 /* Difigiano App */ = {
 			isa = PBXGroup;
 			children = (
+				B79B0F402953352C0076368C /* Difigiano-App-Info.plist */,
 				B796639629531D7A0050BA58 /* Difigiano_AppApp.swift */,
-				B796639829531D7A0050BA58 /* ContentView.swift */,
+				B79B0F42295342310076368C /* Views */,
+				B79B0F41295342230076368C /* Models */,
+				B79B0F3B2953339B0076368C /* UnifrakturMaguntia.ttf */,
 				B796639A29531D7C0050BA58 /* Assets.xcassets */,
 				B796639C29531D7C0050BA58 /* Preview Content */,
 			);
@@ -125,6 +149,29 @@
 				B79663B329531D7C0050BA58 /* Difigiano_AppUITestsLaunchTests.swift */,
 			);
 			path = "Difigiano AppUITests";
+			sourceTree = "<group>";
+		};
+		B79B0F41295342230076368C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B79663C6295321AD0050BA58 /* Model.swift */,
+				B79663CA2953274F0050BA58 /* User.swift */,
+				B79663CC295328160050BA58 /* Post.swift */,
+				B79663CE29532A810050BA58 /* Location.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B79B0F42295342310076368C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B79663C4295320430050BA58 /* MainView.swift */,
+				B796639829531D7A0050BA58 /* LeaderBoardView.swift */,
+				B79663C029531E5D0050BA58 /* MapView.swift */,
+				B79663C8295325D90050BA58 /* ProfileView.swift */,
+				B79B0F432953426C0076368C /* ShopView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B796639E29531D7C0050BA58 /* Preview Assets.xcassets in Resources */,
+				B79B0F3C295333EB0076368C /* UnifrakturMaguntia.ttf in Resources */,
 				B796639B29531D7C0050BA58 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B79B0F3D295333EB0076368C /* UnifrakturMaguntia.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B79B0F3E295333EE0076368C /* UnifrakturMaguntia.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +307,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B796639929531D7A0050BA58 /* ContentView.swift in Sources */,
+				B79663C129531E5D0050BA58 /* MapView.swift in Sources */,
+				B79663C5295320430050BA58 /* MainView.swift in Sources */,
+				B79663C9295325D90050BA58 /* ProfileView.swift in Sources */,
+				B79B0F442953426C0076368C /* ShopView.swift in Sources */,
+				B79663CD295328160050BA58 /* Post.swift in Sources */,
+				B79663CF29532A810050BA58 /* Location.swift in Sources */,
+				B796639929531D7A0050BA58 /* LeaderBoardView.swift in Sources */,
+				B79663C7295321AD0050BA58 /* Model.swift in Sources */,
 				B796639729531D7A0050BA58 /* Difigiano_AppApp.swift in Sources */,
+				B79663CB2953274F0050BA58 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +478,7 @@
 				DEVELOPMENT_TEAM = ZPY4BSSXTW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Difigiano-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,6 +508,7 @@
 				DEVELOPMENT_TEAM = ZPY4BSSXTW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Difigiano-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
