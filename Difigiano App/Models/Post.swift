@@ -12,7 +12,7 @@ import SwiftUI
 struct Post: Codable, Identifiable {
     
     var id: UUID
-    var creator: User
+    var creator: Contributor
     var location: Location
     var imageURL: URL? = URL(string: "https://hws.dev/paul.jpg")
     var descrition: String? = "my best post so far"

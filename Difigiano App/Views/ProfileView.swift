@@ -13,7 +13,12 @@ struct ProfileView: View {
     private var model: Model
     
     var body: some View {
-        Text("profile")
+        Button(action: {
+            Authentication.signOut()
+        }, label: {
+            Text("sign out")
+        })
+        
     }
 }
 

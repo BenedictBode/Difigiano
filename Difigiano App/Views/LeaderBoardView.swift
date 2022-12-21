@@ -14,7 +14,7 @@ struct LeaderBoardView: View {
     
     var body: some View {
         List {
-            ForEach(model.users.sorted(by: User.compByPoints)) { user in
+            ForEach(model.users.sorted(by: Contributor.compByPoints)) { user in
                 HStack {
                     AsyncImage(url: user.imageURL,
                         content: { image in
@@ -38,7 +38,7 @@ struct LeaderBoardView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct LeaderBoardView_Previews: PreviewProvider {
     static var previews: some View {
         LeaderBoardView()
             .environmentObject(Model())

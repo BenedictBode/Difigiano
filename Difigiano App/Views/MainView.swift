@@ -6,37 +6,44 @@
 //
 
 import SwiftUI
-
+import FirebaseAuth
 struct MainView: View {
     
     @EnvironmentObject
     private var model: Model
     
     var body: some View {
-        TabView{
-            LeaderBoardView()
-                .tabItem {
-                    Label("leaderboard", image: "leaderboard")
-                }
-                .environmentObject(model)
+        
+        if model.isSignedIn {
             
-            MapView()
-                .tabItem {
-                    Label("map", image: "pin")
-                }
-                .environmentObject(model)
-            
-            ProfileView()
-                .tabItem {
-                    Label("profile", image: "profile")
-                }
-                .environmentObject(model)
-            
-            ProfileView()
-                .tabItem {
-                    Label("shop", image: "bag")
-                }
-                .environmentObject(model)
+            TabView{
+                LeaderBoardView()
+                    .tabItem {
+                        Label("leaderboard", image: "leaderboard")
+                    }
+                    .environmentObject(model)
+                
+                MapView()
+                    .tabItem {
+                        Label("map", image: "pin")
+                    }
+                    .environmentObject(model)
+                
+                ProfileView()
+                    .tabItem {
+                        Label("profile", image: "profile")
+                    }
+                    .environmentObject(model)
+                
+                ProfileView()
+                    .tabItem {
+                        Label("shop", image: "bag")
+                    }
+                    .environmentObject(model)
+                
+            }
+        } else {
+            LoginView()
         }
     }
 }

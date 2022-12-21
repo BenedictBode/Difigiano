@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct User: Codable, Identifiable {
+struct Contributor: Codable, Identifiable {
     
     var id: UUID = UUID()
     var points: Int = Int.random(in: 0...100)
@@ -17,7 +17,7 @@ struct User: Codable, Identifiable {
     var imageURL: URL? = URL(string: "https://hws.dev/paul.jpg")
     var posts: [Post] = []
     
-    static func compByPoints(user1: User, user2: User) -> Bool {
+    static func compByPoints(user1: Contributor, user2: Contributor) -> Bool {
         user1.points > user2.points
     }
 }
