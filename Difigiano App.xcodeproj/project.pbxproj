@@ -25,6 +25,10 @@
 		B79B0F3D295333EB0076368C /* UnifrakturMaguntia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B79B0F3B2953339B0076368C /* UnifrakturMaguntia.ttf */; };
 		B79B0F3E295333EE0076368C /* UnifrakturMaguntia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B79B0F3B2953339B0076368C /* UnifrakturMaguntia.ttf */; };
 		B79B0F442953426C0076368C /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B0F432953426C0076368C /* ShopView.swift */; };
+		B79B0F46295348220076368C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B79B0F45295348220076368C /* GoogleService-Info.plist */; };
+		B79B0F49295349360076368C /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = B79B0F48295349360076368C /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		B79B0F4B295349360076368C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B79B0F4A295349360076368C /* FirebaseAuth */; };
+		B79B0F4D295349360076368C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B79B0F4C295349360076368C /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +69,7 @@
 		B79B0F3B2953339B0076368C /* UnifrakturMaguntia.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UnifrakturMaguntia.ttf; sourceTree = "<group>"; };
 		B79B0F402953352C0076368C /* Difigiano-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Difigiano-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B79B0F432953426C0076368C /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		B79B0F45295348220076368C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +77,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B79B0F49295349360076368C /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				B79B0F4B295349360076368C /* FirebaseAuth in Frameworks */,
+				B79B0F4D295349360076368C /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				B79B0F402953352C0076368C /* Difigiano-App-Info.plist */,
+				B79B0F45295348220076368C /* GoogleService-Info.plist */,
 				B796639629531D7A0050BA58 /* Difigiano_AppApp.swift */,
 				B79B0F42295342310076368C /* Views */,
 				B79B0F41295342230076368C /* Models */,
@@ -190,6 +199,11 @@
 			dependencies = (
 			);
 			name = "Difigiano App";
+			packageProductDependencies = (
+				B79B0F48295349360076368C /* FirebaseAnalyticsWithoutAdIdSupport */,
+				B79B0F4A295349360076368C /* FirebaseAuth */,
+				B79B0F4C295349360076368C /* FirebaseStorage */,
+			);
 			productName = "Difigiano App";
 			productReference = B796639329531D7A0050BA58 /* Difigiano App.app */;
 			productType = "com.apple.product-type.application";
@@ -262,6 +276,9 @@
 				Base,
 			);
 			mainGroup = B796638A29531D7A0050BA58;
+			packageReferences = (
+				B79B0F47295349360076368C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = B796639429531D7A0050BA58 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -279,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B796639E29531D7C0050BA58 /* Preview Assets.xcassets in Resources */,
+				B79B0F46295348220076368C /* GoogleService-Info.plist in Resources */,
 				B79B0F3C295333EB0076368C /* UnifrakturMaguntia.ttf in Resources */,
 				B796639B29531D7C0050BA58 /* Assets.xcassets in Resources */,
 			);
@@ -479,6 +497,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Difigiano-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Difigiano;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -489,7 +508,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.benedict.Difigiano-App";
+				PRODUCT_BUNDLE_IDENTIFIER = com.benedict.Difigiano;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -509,6 +528,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Difigiano-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Difigiano;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -519,7 +539,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.benedict.Difigiano-App";
+				PRODUCT_BUNDLE_IDENTIFIER = com.benedict.Difigiano;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -643,6 +663,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B79B0F47295349360076368C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B79B0F48295349360076368C /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B79B0F47295349360076368C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		B79B0F4A295349360076368C /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B79B0F47295349360076368C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		B79B0F4C295349360076368C /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B79B0F47295349360076368C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B796638B29531D7A0050BA58 /* Project object */;
 }
