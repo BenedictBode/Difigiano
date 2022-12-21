@@ -14,12 +14,8 @@ struct User: Codable, Identifiable {
     var points: Int = Int.random(in: 0...100)
     var name: String
     var isAdmin: Bool = false
-    var imageName: String = "default-profile-pic"
+    var imageURL: URL? = URL(string: "https://hws.dev/paul.jpg")
     var posts: [Post] = []
-    
-    var image: Image {
-        Image(imageName)
-    }
     
     static func compByPoints(user1: User, user2: User) -> Bool {
         user1.points > user2.points

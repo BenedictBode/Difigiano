@@ -16,12 +16,17 @@ struct LeaderBoardView: View {
         List {
             ForEach(model.users.sorted(by: User.compByPoints)) { user in
                 HStack {
-                    
-                    user.image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 50)
-                        .clipShape(Circle())
+                    AsyncImage(url: user.imageURL,
+                        content: { image in
+                            image.resizable()
+                                 .aspectRatio(contentMode: .fit)
+                                 .frame(maxWidth: 50, maxHeight: 50)
+                                 .clipShape(Circle())
+                        },
+                        placeholder: {
+                            ProgressView()
+                        }
+                    )
                     Text(user.name)
                         .font( .custom("UnifrakturMaguntia", size: 40))
                     Spacer()
