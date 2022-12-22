@@ -39,6 +39,7 @@
 		B7AACC17295377750055C587 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AACC16295377750055C587 /* ImagePicker.swift */; };
 		B7AACC1A29542DAB0055C587 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B7AACC1929542DAB0055C587 /* FirebaseDatabase */; };
 		B7AACC1C2954382E0055C587 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7AACC1B2954382E0055C587 /* GoogleService-Info.plist */; };
+		B7AACC2029546DA80055C587 /* DifigianoMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AACC1F29546DA80055C587 /* DifigianoMapAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		B7AACC14295370DC0055C587 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		B7AACC16295377750055C587 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		B7AACC1B2954382E0055C587 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B7AACC1F29546DA80055C587 /* DifigianoMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifigianoMapAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 				B79663C4295320430050BA58 /* MainView.swift */,
 				B796639829531D7A0050BA58 /* LeaderBoardView.swift */,
 				B79663C029531E5D0050BA58 /* MapView.swift */,
+				B7AACC1F29546DA80055C587 /* DifigianoMapAnnotation.swift */,
 				B79663C8295325D90050BA58 /* ProfileView.swift */,
 				B7AACC1129536F6E0055C587 /* UploadView.swift */,
 				B79B0F432953426C0076368C /* ShopView.swift */,
@@ -380,6 +383,7 @@
 				B79663C5295320430050BA58 /* MainView.swift in Sources */,
 				B79663C9295325D90050BA58 /* ProfileView.swift in Sources */,
 				B79B0F442953426C0076368C /* ShopView.swift in Sources */,
+				B7AACC2029546DA80055C587 /* DifigianoMapAnnotation.swift in Sources */,
 				B79663CD295328160050BA58 /* Post.swift in Sources */,
 				B7AACC15295370DC0055C587 /* DataStorage.swift in Sources */,
 				B79663CF29532A810050BA58 /* Location.swift in Sources */,

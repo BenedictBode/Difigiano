@@ -9,15 +9,16 @@ import Foundation
 import CoreLocation
 import SwiftUI
 
-struct Post: Codable, Identifiable {
+class Post: Identifiable {
     
+    static let defaultImage = UIImage(named: "Difigiano")!
     var id: UUID = UUID()
     var creatorId: UUID
     var location: Location
-    var imageURL: URL? {
-        URL(string: "https://firebasestorage.googleapis.com/v0/b/difigiano-24e34.appspot.com/o/postImages%" + id.uuidString + "?alt=media&token=a6654dda-fcf7-451c-be6d-7dfee5c7c4ae")
-    }
     var descrition: String? = "my best post so far"
+    var imageURL: URL
+    var previewImageURL: URL
+    
     var timestamp: Date = Date()
     
     func asDictonary() -> NSDictionary {
@@ -26,7 +27,9 @@ struct Post: Codable, Identifiable {
             "creator-id": creatorId.uuidString,
             "location": location.asDictonary(),
             "descrition": descrition ?? "",
-            "timestamp": timestamp.timeIntervalSince1970
+            "timestamp": timestamp.timeIntervalSince1970,
+            "previewImageURL": previewImageURL.absoluteString,
+            "imageURL": imageURL.absoluteString
         ]
     }
     
@@ -36,8 +39,13 @@ struct Post: Codable, Identifiable {
                 let idValue = UUID(uuidString: idStringValue),
                 let creatorIdValue = UUID(uuidString: creatorIdStringValue),
                 let locationDictValue = dict["location"] as? NSDictionary,
-                let descritionValue = dict["location"] as? String,
-                let timestampValue = dict["timestamp"] as? TimeInterval else {
+                let descritionValue = dict["descrition"] as? String,
+                let timestampValue = dict["timestamp"] as? TimeInterval,
+                let previewImageURLStringValue = dict["previewImageURL"] as? String,
+                let imageURLStringValue = dict["imageURL"] as? String,
+                let previewImageURLValue = URL(string: previewImageURLStringValue),
+                let imageURLValue = URL(string: imageURLStringValue)
+        else {
             throw ParsingError.invalidFormat
         }
          
@@ -47,12 +55,18 @@ struct Post: Codable, Identifiable {
         location = try Location(from: locationDictValue)
         descrition = descritionValue
         timestamp = Date(timeIntervalSince1970: timestampValue)
+        imageURL = imageURLValue
+        previewImageURL = previewImageURLValue
     }
     
-    init(creatorId: UUID, location: Location) {
+    init(id: UUID, creatorId: UUID, location: Location, imageURL: URL, previewImageURL: URL) {
+        self.id = id
         self.creatorId = creatorId
         self.location = location
+        self.imageURL = imageURL
+        self.previewImageURL = previewImageURL
     }
+    
 }
 
 

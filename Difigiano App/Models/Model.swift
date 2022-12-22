@@ -19,11 +19,17 @@ class Model: ObservableObject {
     
     @Published var posts: [Post] = []
     
+    @Published var previewImages: [UIImage] = []
+    
     @Published var isSignedIn: Bool = Auth.auth().currentUser?.uid != nil
     
-    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 48.13, longitude: 11.58), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
     
     @Published var users = [Contributor(name: "Amelie"), Contributor(name: "Amalie"), Contributor(name: "Fella"), Contributor(name: "Bene")]
+    
+    func getPreviewImages() {
+        
+    }
     
     func subscribeToSignedIn() {
         Authentication.auth.addStateDidChangeListener() { auth, user in
@@ -32,21 +38,22 @@ class Model: ObservableObject {
     }
     
     func subscribeToPosts() {
-        DataStorage.ref.child("posts").observeSingleEvent(of: .value, with: { snapshot in
+        DataStorage.database.reference(withPath: "posts").observe(.value, with: { snapshot in
             guard let postsDict = snapshot.value as? NSDictionary else {
                 return
             }
             var updatedPosts: [Post] = []
-            for (_, postDict) in postsDict {
-                if postDict is NSDictionary {
+            for (_, postDictValue) in postsDict {
+                if let postDict = postDictValue as? NSDictionary {
                     do {
-                        try updatedPosts.append(Post(from: postsDict))
+                        try updatedPosts.append(Post(from: postDict))
                     } catch {
                         print("something wrong with a post")
                     }
                 }
             }
             self.posts = updatedPosts
+            print("updated posts now " + String(self.posts.count))
         }) { error in
             print(error.localizedDescription)
         }

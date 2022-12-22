@@ -18,7 +18,11 @@ struct MapView: View {
     private var model: Model
     
     var body: some View {
-        Map(coordinateRegion: $model.region)
+        Map(coordinateRegion: $model.region,annotationItems: model.posts) { post in
+            MapAnnotation(coordinate: post.location.cllocation) {
+                DifigianoMapAnnotation(post: post)
+            }
+        }
             .statusBar(hidden: true)
             .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height*1.1, alignment: .center)
 

@@ -7,10 +7,13 @@
 
 import Foundation
 import SwiftUI
+import Photos
 
 struct ImagePicker: UIViewControllerRepresentable {
     
     @Binding var image: UIImage?
+    @Binding var creationDate: Date?
+    @Binding var location: Location?
     
     private let controller = UIImagePickerController()
     
@@ -28,6 +31,16 @@ struct ImagePicker: UIViewControllerRepresentable {
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             parent.image = info[.originalImage] as? UIImage
+            
+            let asset = info[.phAsset] as? PHAsset
+            print(asset?.creationDate ?? "None")
+            print(asset?.location ?? "None")
+            
+            parent.creationDate = asset?.creationDate
+            if let assetLocation = asset?.location {
+                parent.location = Location(latitude: assetLocation.coordinate.latitude, longitude: assetLocation.coordinate.longitude)
+            }
+            
             picker.dismiss(animated: true)
         }
         

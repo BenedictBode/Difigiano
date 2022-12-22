@@ -14,34 +14,57 @@ class DataStorage {
     
     static let shared = DataStorage()
     static let storage = Storage.storage()
-    static let ref = Database.database().reference()
+    static let database = Database.database()
     
-        
-    static func persistToStorage(image: UIImage, path: String) {
+    
+    static func persistToStorage(image: UIImage, path: String, completion: @escaping (URL) -> ()) {
         
         let ref = storage.reference(withPath: path)
-            guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
-            ref.putData(imageData, metadata: nil) { metadata, err in
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
+        ref.putData(imageData, metadata: nil) { metadata, err in
+            if let err = err {
+                print("Failed to push image to Storage: \(err)")
+                return
+            }
+            
+            ref.downloadURL { url, err in
                 if let err = err {
-                    print("Failed to push image to Storage: \(err)")
+                    print("Failed to retrieve downloadURL: \(err)")
                     return
                 }
-                
-                ref.downloadURL { url, err in
-                    if let err = err {
-                        print("Failed to retrieve downloadURL: \(err)")
-                        return
-                    }
-                    
-                    print("Successfully stored image with url: \(url?.absoluteString ?? "")")
-                    print(url?.absoluteString ?? "url placeholder")
+                guard let url = url else {
+                    return
+                }
+                completion(url)
+            }
+        }
+    }
+    
+    static func persistToStorage(post: Post) {
+        database.reference(withPath: "posts").child(post.id.uuidString).setValue(post.asDictonary())
+    }
+    
+    static func loadImageFromStorage (path: String, completion: @escaping (UIImage) -> ()) {
+        storage.reference(withPath: path).getData(maxSize: (1 * 1024 * 1024)) { (data, error) in
+            if let err = error {
+                print(err)
+            } else {
+                if let imageData = data, let image = UIImage(data: imageData) {
+                    completion(image)
+                } else {
+                    print("wrong data while tying to fetch image")
                 }
             }
         }
-    
-    static func persistToStorage(post: Post) {
-        ref.child("posts").child(post.id.uuidString).setValue(post.asDictonary())
     }
+    
+    //Maybe load all preview images at once to reduce amount of single requests to firebase
+    /*static func loadImages(from path: String, completion: @escaping ([String: UIImage]) -> ()) {
+        
+        storage.reference(withPath: path).observe() { (data, error) in
+            
+        }
+    }*/
 }
 
 enum ParsingError: Error {

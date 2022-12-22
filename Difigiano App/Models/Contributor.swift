@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Contributor: Codable, Identifiable {
+struct Contributor: Identifiable {
     
     var id: UUID = UUID()
     var points: Int = Int.random(in: 0...100)

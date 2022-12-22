@@ -8,19 +8,19 @@
 import Foundation
 import CoreLocation
 
-struct Location: Codable {
+struct Location {
     
     var latitude: Double
     var longitude: Double
     
-    var cllocation: CLLocation {
-        CLLocation(latitude: latitude, longitude: longitude)
+    var cllocation: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
     
     func asDictonary() -> NSDictionary {
         [
-            "latitude": longitude,
-            "longitude": latitude
+            "latitude": latitude,
+            "longitude": longitude
         ]
     }
     
