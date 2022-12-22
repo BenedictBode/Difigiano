@@ -13,12 +13,25 @@ struct ProfileView: View {
     private var model: Model
     
     var body: some View {
-        Button(action: {
-            Authentication.signOut()
-        }, label: {
-            Text("sign out")
-        })
-        
+        VStack {
+            if let currentUser = model.currentUser {
+                AsyncImage(url: currentUser.imageURL)
+                
+                ScrollView(.horizontal) {
+                    LazyHStack{
+                        ForEach(model.posts.filter({$0.creatorId == currentUser.id})) {post in
+                            PostDetailView(post: post)
+                        }
+                    }
+                }
+            }
+            
+            Button(action: {
+                Authentication.signOut()
+            }, label: {
+                Text("sign out")
+            })
+        }
     }
 }
 

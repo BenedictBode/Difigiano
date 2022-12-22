@@ -28,7 +28,7 @@ struct LeaderBoardView: View {
                         }
                     )
                     Text(user.name)
-                        .font( .custom("UnifrakturMaguntia", size: 40))
+                        .font( .custom("UnifrakturMaguntia", size: 30))
                     Spacer()
                     Text(String(user.points))
                         .font( .custom("UnifrakturMaguntia", size: 40))

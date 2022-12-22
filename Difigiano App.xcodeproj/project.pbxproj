@@ -40,6 +40,7 @@
 		B7AACC1A29542DAB0055C587 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B7AACC1929542DAB0055C587 /* FirebaseDatabase */; };
 		B7AACC1C2954382E0055C587 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7AACC1B2954382E0055C587 /* GoogleService-Info.plist */; };
 		B7AACC2029546DA80055C587 /* DifigianoMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AACC1F29546DA80055C587 /* DifigianoMapAnnotation.swift */; };
+		B7AACC222954B2CC0055C587 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AACC212954B2CC0055C587 /* PostDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		B7AACC16295377750055C587 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		B7AACC1B2954382E0055C587 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7AACC1F29546DA80055C587 /* DifigianoMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifigianoMapAnnotation.swift; sourceTree = "<group>"; };
+		B7AACC212954B2CC0055C587 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				B7AACC0F29536DC10055C587 /* GoogleSignInButton.swift */,
+				B7AACC212954B2CC0055C587 /* PostDetailView.swift */,
 				B7AACC16295377750055C587 /* ImagePicker.swift */,
 			);
 			path = HelperViews;
@@ -386,6 +389,7 @@
 				B7AACC2029546DA80055C587 /* DifigianoMapAnnotation.swift in Sources */,
 				B79663CD295328160050BA58 /* Post.swift in Sources */,
 				B7AACC15295370DC0055C587 /* DataStorage.swift in Sources */,
+				B7AACC222954B2CC0055C587 /* PostDetailView.swift in Sources */,
 				B79663CF29532A810050BA58 /* Location.swift in Sources */,
 				B796639929531D7A0050BA58 /* LeaderBoardView.swift in Sources */,
 				B79663C7295321AD0050BA58 /* Model.swift in Sources */,

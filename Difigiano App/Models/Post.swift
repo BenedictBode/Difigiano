@@ -13,7 +13,7 @@ class Post: Identifiable {
     
     static let defaultImage = UIImage(named: "Difigiano")!
     var id: UUID = UUID()
-    var creatorId: UUID
+    var creatorId: String
     var location: Location
     var descrition: String? = "my best post so far"
     var imageURL: URL
@@ -24,7 +24,7 @@ class Post: Identifiable {
     func asDictonary() -> NSDictionary {
         [
             "id": id.uuidString,
-            "creator-id": creatorId.uuidString,
+            "creator-id": creatorId,
             "location": location.asDictonary(),
             "descrition": descrition ?? "",
             "timestamp": timestamp.timeIntervalSince1970,
@@ -35,9 +35,8 @@ class Post: Identifiable {
     
     init(from dict: NSDictionary) throws {
         guard let idStringValue = dict["id"] as? String,
-                let creatorIdStringValue = dict["creator-id"] as? String,
-                let idValue = UUID(uuidString: idStringValue),
-                let creatorIdValue = UUID(uuidString: creatorIdStringValue),
+              let idValue = UUID(uuidString: idStringValue),
+                let creatorIdValue = dict["creator-id"] as? String,
                 let locationDictValue = dict["location"] as? NSDictionary,
                 let descritionValue = dict["descrition"] as? String,
                 let timestampValue = dict["timestamp"] as? TimeInterval,
@@ -59,7 +58,7 @@ class Post: Identifiable {
         previewImageURL = previewImageURLValue
     }
     
-    init(id: UUID, creatorId: UUID, location: Location, imageURL: URL, previewImageURL: URL) {
+    init(id: UUID, creatorId: String, location: Location, imageURL: URL, previewImageURL: URL) {
         self.id = id
         self.creatorId = creatorId
         self.location = location

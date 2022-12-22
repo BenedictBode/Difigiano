@@ -61,13 +61,19 @@ struct UploadView: View {
                         DataStorage.persistToStorage(image: previewImage, path: "postPreviewImages/" + postId.uuidString) { imagePreviewURL in
                             
                             let post = Post(id: postId,
-                                            creatorId: Contributor(name: "Bene").id,
+                                            creatorId: model.currentUser!.id,
                                  location: location ?? Location(latitude: Double.random(in: 47...50), longitude: Double.random(in: 9...12)),
                                  imageURL: imageURL,
                                  previewImageURL: imagePreviewURL
                             )
                             
                             DataStorage.persistToStorage(post: post)
+                            
+                            if var currentUser = model.currentUser {
+                                currentUser.points += 1
+                                DataStorage.persistToStorage(contributor: currentUser)
+                            }
+                            
                         }
                     }
                 } label: {
