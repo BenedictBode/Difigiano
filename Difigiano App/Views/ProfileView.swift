@@ -16,6 +16,7 @@ struct ProfileView: View {
         VStack {
             if let currentUser = model.currentUser {
                 AsyncImage(url: currentUser.imageURL)
+                    .clipShape(Circle())
                 
                 ScrollView(.horizontal) {
                     LazyHStack{

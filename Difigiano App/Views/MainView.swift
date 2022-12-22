@@ -44,14 +44,14 @@ struct MainView: View {
                     }
                     .environmentObject(model)
                 
-                ShopView()
+                /*ShopView()
                     .tabItem {
                         Label {
                         } icon: {
                             Image(systemName: "bag.fill")
                         }
                     }
-                    .environmentObject(model)
+                    .environmentObject(model)*/
                 
                 ProfileView()
                     .tabItem {

@@ -41,6 +41,8 @@
 		B7AACC1C2954382E0055C587 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7AACC1B2954382E0055C587 /* GoogleService-Info.plist */; };
 		B7AACC2029546DA80055C587 /* DifigianoMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AACC1F29546DA80055C587 /* DifigianoMapAnnotation.swift */; };
 		B7AACC222954B2CC0055C587 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AACC212954B2CC0055C587 /* PostDetailView.swift */; };
+		B7CC1F7E2954BC4C00F7FA36 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CC1F7D2954BC4C00F7FA36 /* ColorExtension.swift */; };
+		B7CC1F802954BC6500F7FA36 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CC1F7F2954BC6500F7FA36 /* UIImageExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		B7AACC1B2954382E0055C587 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7AACC1F29546DA80055C587 /* DifigianoMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifigianoMapAnnotation.swift; sourceTree = "<group>"; };
 		B7AACC212954B2CC0055C587 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		B7CC1F7D2954BC4C00F7FA36 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		B7CC1F7F2954BC6500F7FA36 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,7 @@
 				B796639629531D7A0050BA58 /* Difigiano_AppApp.swift */,
 				B79B0F42295342310076368C /* Views */,
 				B7AACC0E29536DA90055C587 /* HelperViews */,
+				B7CC1F7C2954BC3C00F7FA36 /* Extensions */,
 				B79B0F41295342230076368C /* Models */,
 				B7AACC13295370B20055C587 /* Helpers */,
 				B79B0F3B2953339B0076368C /* UnifrakturMaguntia.ttf */,
@@ -229,6 +234,15 @@
 				B7AACC14295370DC0055C587 /* DataStorage.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B7CC1F7C2954BC3C00F7FA36 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B7CC1F7D2954BC4C00F7FA36 /* ColorExtension.swift */,
+				B7CC1F7F2954BC6500F7FA36 /* UIImageExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,6 +397,7 @@
 				B7AACC0629535BB00055C587 /* Authentication.swift in Sources */,
 				B7AACC1229536F6E0055C587 /* UploadView.swift in Sources */,
 				B79663C129531E5D0050BA58 /* MapView.swift in Sources */,
+				B7CC1F802954BC6500F7FA36 /* UIImageExtension.swift in Sources */,
 				B79663C5295320430050BA58 /* MainView.swift in Sources */,
 				B79663C9295325D90050BA58 /* ProfileView.swift in Sources */,
 				B79B0F442953426C0076368C /* ShopView.swift in Sources */,
@@ -398,6 +413,7 @@
 				B7AACC17295377750055C587 /* ImagePicker.swift in Sources */,
 				B796639729531D7A0050BA58 /* Difigiano_AppApp.swift in Sources */,
 				B79663CB2953274F0050BA58 /* Contributor.swift in Sources */,
+				B7CC1F7E2954BC4C00F7FA36 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

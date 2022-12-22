@@ -17,7 +17,7 @@ struct LoginView: View {
       Spacer()
 
       // 2
-      Image("Difigiano")
+      Image("uncle sam")
         .resizable()
         .aspectRatio(contentMode: .fit)
 
@@ -29,6 +29,10 @@ struct LoginView: View {
         .onTapGesture {
             Authentication.signIn()
         }
+        Spacer()
+        
+        Text("by Bene Bode")
+            .font(.custom("UnifrakturMaguntia", size: 12))
     }
   }
 }
