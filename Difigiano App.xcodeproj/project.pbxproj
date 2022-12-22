@@ -25,7 +25,6 @@
 		B79B0F3D295333EB0076368C /* UnifrakturMaguntia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B79B0F3B2953339B0076368C /* UnifrakturMaguntia.ttf */; };
 		B79B0F3E295333EE0076368C /* UnifrakturMaguntia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B79B0F3B2953339B0076368C /* UnifrakturMaguntia.ttf */; };
 		B79B0F442953426C0076368C /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B0F432953426C0076368C /* ShopView.swift */; };
-		B79B0F46295348220076368C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B79B0F45295348220076368C /* GoogleService-Info.plist */; };
 		B79B0F49295349360076368C /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = B79B0F48295349360076368C /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		B79B0F4B295349360076368C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B79B0F4A295349360076368C /* FirebaseAuth */; };
 		B79B0F4D295349360076368C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B79B0F4C295349360076368C /* FirebaseStorage */; };
@@ -35,6 +34,11 @@
 		B7AACC0929535CF80055C587 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B7AACC0829535CF80055C587 /* GoogleSignIn */; };
 		B7AACC0B29535CF80055C587 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7AACC0A29535CF80055C587 /* GoogleSignInSwift */; };
 		B7AACC1029536DC10055C587 /* GoogleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AACC0F29536DC10055C587 /* GoogleSignInButton.swift */; };
+		B7AACC1229536F6E0055C587 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AACC1129536F6E0055C587 /* UploadView.swift */; };
+		B7AACC15295370DC0055C587 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AACC14295370DC0055C587 /* DataStorage.swift */; };
+		B7AACC17295377750055C587 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AACC16295377750055C587 /* ImagePicker.swift */; };
+		B7AACC1A29542DAB0055C587 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B7AACC1929542DAB0055C587 /* FirebaseDatabase */; };
+		B7AACC1C2954382E0055C587 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7AACC1B2954382E0055C587 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,10 +79,13 @@
 		B79B0F3B2953339B0076368C /* UnifrakturMaguntia.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UnifrakturMaguntia.ttf; sourceTree = "<group>"; };
 		B79B0F402953352C0076368C /* Difigiano-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Difigiano-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B79B0F432953426C0076368C /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
-		B79B0F45295348220076368C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7AACBFE2953545C0055C587 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B7AACC0529535BB00055C587 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		B7AACC0F29536DC10055C587 /* GoogleSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButton.swift; sourceTree = "<group>"; };
+		B7AACC1129536F6E0055C587 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
+		B7AACC14295370DC0055C587 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		B7AACC16295377750055C587 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		B7AACC1B2954382E0055C587 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +98,7 @@
 				B79B0F4B295349360076368C /* FirebaseAuth in Frameworks */,
 				B7AACC0B29535CF80055C587 /* GoogleSignInSwift in Frameworks */,
 				B79B0F4D295349360076368C /* FirebaseStorage in Frameworks */,
+				B7AACC1A29542DAB0055C587 /* FirebaseDatabase in Frameworks */,
 				B7AACC02295355A10055C587 /* GoogleSignInSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,11 +144,12 @@
 			isa = PBXGroup;
 			children = (
 				B79B0F402953352C0076368C /* Difigiano-App-Info.plist */,
-				B79B0F45295348220076368C /* GoogleService-Info.plist */,
+				B7AACC1B2954382E0055C587 /* GoogleService-Info.plist */,
 				B796639629531D7A0050BA58 /* Difigiano_AppApp.swift */,
 				B79B0F42295342310076368C /* Views */,
 				B7AACC0E29536DA90055C587 /* HelperViews */,
 				B79B0F41295342230076368C /* Models */,
+				B7AACC13295370B20055C587 /* Helpers */,
 				B79B0F3B2953339B0076368C /* UnifrakturMaguntia.ttf */,
 				B796639A29531D7C0050BA58 /* Assets.xcassets */,
 				B796639C29531D7C0050BA58 /* Preview Content */,
@@ -180,7 +189,6 @@
 				B79663CA2953274F0050BA58 /* Contributor.swift */,
 				B79663CC295328160050BA58 /* Post.swift */,
 				B79663CE29532A810050BA58 /* Location.swift */,
-				B7AACC0529535BB00055C587 /* Authentication.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -192,6 +200,7 @@
 				B796639829531D7A0050BA58 /* LeaderBoardView.swift */,
 				B79663C029531E5D0050BA58 /* MapView.swift */,
 				B79663C8295325D90050BA58 /* ProfileView.swift */,
+				B7AACC1129536F6E0055C587 /* UploadView.swift */,
 				B79B0F432953426C0076368C /* ShopView.swift */,
 				B7AACBFE2953545C0055C587 /* LoginView.swift */,
 			);
@@ -202,8 +211,18 @@
 			isa = PBXGroup;
 			children = (
 				B7AACC0F29536DC10055C587 /* GoogleSignInButton.swift */,
+				B7AACC16295377750055C587 /* ImagePicker.swift */,
 			);
 			path = HelperViews;
+			sourceTree = "<group>";
+		};
+		B7AACC13295370B20055C587 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B7AACC0529535BB00055C587 /* Authentication.swift */,
+				B7AACC14295370DC0055C587 /* DataStorage.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +248,7 @@
 				B7AACC01295355A10055C587 /* GoogleSignInSwift */,
 				B7AACC0829535CF80055C587 /* GoogleSignIn */,
 				B7AACC0A29535CF80055C587 /* GoogleSignInSwift */,
+				B7AACC1929542DAB0055C587 /* FirebaseDatabase */,
 			);
 			productName = "Difigiano App";
 			productReference = B796639329531D7A0050BA58 /* Difigiano App.app */;
@@ -306,6 +326,7 @@
 				B79B0F47295349360076368C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				B7AACC00295355A10055C587 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				B7AACC0729535CF80055C587 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				B7AACC1829542DAB0055C587 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = B796639429531D7A0050BA58 /* Products */;
 			projectDirPath = "";
@@ -324,7 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B796639E29531D7C0050BA58 /* Preview Assets.xcassets in Resources */,
-				B79B0F46295348220076368C /* GoogleService-Info.plist in Resources */,
+				B7AACC1C2954382E0055C587 /* GoogleService-Info.plist in Resources */,
 				B79B0F3C295333EB0076368C /* UnifrakturMaguntia.ttf in Resources */,
 				B796639B29531D7C0050BA58 /* Assets.xcassets in Resources */,
 			);
@@ -354,16 +375,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7AACC0629535BB00055C587 /* Authentication.swift in Sources */,
+				B7AACC1229536F6E0055C587 /* UploadView.swift in Sources */,
 				B79663C129531E5D0050BA58 /* MapView.swift in Sources */,
 				B79663C5295320430050BA58 /* MainView.swift in Sources */,
 				B79663C9295325D90050BA58 /* ProfileView.swift in Sources */,
 				B79B0F442953426C0076368C /* ShopView.swift in Sources */,
 				B79663CD295328160050BA58 /* Post.swift in Sources */,
+				B7AACC15295370DC0055C587 /* DataStorage.swift in Sources */,
 				B79663CF29532A810050BA58 /* Location.swift in Sources */,
 				B796639929531D7A0050BA58 /* LeaderBoardView.swift in Sources */,
 				B79663C7295321AD0050BA58 /* Model.swift in Sources */,
 				B7AACBFF2953545C0055C587 /* LoginView.swift in Sources */,
 				B7AACC1029536DC10055C587 /* GoogleSignInButton.swift in Sources */,
+				B7AACC17295377750055C587 /* ImagePicker.swift in Sources */,
 				B796639729531D7A0050BA58 /* Difigiano_AppApp.swift in Sources */,
 				B79663CB2953274F0050BA58 /* Contributor.swift in Sources */,
 			);
@@ -720,6 +744,14 @@
 				kind = branch;
 			};
 		};
+		B7AACC1829542DAB0055C587 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -752,6 +784,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B7AACC00295355A10055C587 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		B7AACC1929542DAB0055C587 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7AACC1829542DAB0055C587 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

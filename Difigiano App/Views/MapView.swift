@@ -19,6 +19,9 @@ struct MapView: View {
     
     var body: some View {
         Map(coordinateRegion: $model.region)
+            .statusBar(hidden: true)
+            .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height*1.1, alignment: .center)
+
     }
 }
 

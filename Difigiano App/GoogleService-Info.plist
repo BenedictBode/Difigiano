@@ -30,5 +30,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:233685813571:ios:806a9ec8297966164687f6</string>
+	<key>DATABASE_URL</key>
+	<string>https://difigiano-24e34-default-rtdb.europe-west1.firebasedatabase.app</string>
 </dict>
 </plist>

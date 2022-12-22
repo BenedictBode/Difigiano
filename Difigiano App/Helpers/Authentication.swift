@@ -11,6 +11,10 @@ import GoogleSignIn
 
 class Authentication {
     
+    static let shared = Authentication()
+    
+    static let auth = Auth.auth()
+    
     static func signIn() {
         // 1
         if GIDSignIn.sharedInstance.hasPreviousSignIn() {
@@ -23,7 +27,7 @@ class Authentication {
             
             // 5
             GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { result, error in
-                Authentication.authenticateUser(for: result?.user, with: error)
+                self.authenticateUser(for: result?.user, with: error)
             }
         }
     }
