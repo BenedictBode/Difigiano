@@ -56,9 +56,16 @@ struct UploadView: View {
                         
                         DataStorage.persistToStorage(image: previewImage, path: "postPreviewImages/" + postId.uuidString) { imagePreviewURL in
                             
+                            guard let currentUser = model.currentUser else {
+                                print("no current user.")
+                                return
+                            }
+                            
+                            print("last location latitude" + String(model.locationManager.lastLocation?.latitude ?? -5))
+                            
                             let post = Post(id: postId,
-                                            creatorId: model.currentUser!.id,
-                                 location: location ?? Location(latitude: Double.random(in: 47...50), longitude: Double.random(in: 9...12)),
+                                            creatorId: currentUser.id,
+                                 location: model.locationManager.lastLocation ?? Location(latitude: Double.random(in: 47...50), longitude: Double.random(in: 9...12)),
                                  imageURL: imageURL,
                                  previewImageURL: imagePreviewURL
                             )
@@ -70,6 +77,7 @@ struct UploadView: View {
                                 DataStorage.persistToStorage(contributor: currentUser)
                             }
                             
+                            self.image = nil
                         }
                     }
                 } label: {

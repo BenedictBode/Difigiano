@@ -18,15 +18,17 @@ struct PostDetailView: View {
                 image
                     .resizable()
                      .aspectRatio(contentMode: .fit)
-                     .frame(maxWidth: 200, maxHeight: 200)
-                     .cornerRadius(10)
+                     .cornerRadius(20)
+                     .padding(20)
+                     
             },
             placeholder: {
                 Image("Difigiano")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: 200, maxHeight: 200)
-                    .cornerRadius(10)
+                    .cornerRadius(20)
+                    .padding(20)
+                    
             }
         )
     }

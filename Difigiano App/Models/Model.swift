@@ -10,12 +10,14 @@ import MapKit
 import FirebaseAuth
 import FirebaseStorage
 
+import Combine
+
 class Model: ObservableObject {
     
     init () {
         subscribeToSignedIn()
         subscribeToPosts()
-        subscribeToUsers()
+        subscribeToUsers()        
     }
     
     @Published var currentUser: Contributor?
@@ -23,13 +25,12 @@ class Model: ObservableObject {
     @Published var posts: [Post] = []
         
     @Published var isSignedIn: Bool = Auth.auth().currentUser?.uid != nil
-    
-    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 48.13, longitude: 11.58), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
-    
+        
     @Published var users: [Contributor] = []
-    
+        
+    var locationManager = LocationManager()
     var uid: String?
-    
+        
     func subscribeToSignedIn() {
         Authentication.auth.addStateDidChangeListener() { auth, user in
             if let uid = Auth.auth().currentUser?.uid {

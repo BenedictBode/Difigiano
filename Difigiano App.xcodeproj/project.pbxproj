@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7366C952954D25400F0BFAA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7366C942954D25400F0BFAA /* LocationManager.swift */; };
 		B796639729531D7A0050BA58 /* Difigiano_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796639629531D7A0050BA58 /* Difigiano_AppApp.swift */; };
 		B796639929531D7A0050BA58 /* LeaderBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796639829531D7A0050BA58 /* LeaderBoardView.swift */; };
 		B796639B29531D7C0050BA58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B796639A29531D7C0050BA58 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B7366C942954D25400F0BFAA /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B796639329531D7A0050BA58 /* Difigiano App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Difigiano App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B796639629531D7A0050BA58 /* Difigiano_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difigiano_AppApp.swift; sourceTree = "<group>"; };
 		B796639829531D7A0050BA58 /* LeaderBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardView.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				B79663CA2953274F0050BA58 /* Contributor.swift */,
 				B79663CC295328160050BA58 /* Post.swift */,
 				B79663CE29532A810050BA58 /* Location.swift */,
+				B7366C942954D25400F0BFAA /* LocationManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,7 +211,6 @@
 				B79663C4295320430050BA58 /* MainView.swift */,
 				B796639829531D7A0050BA58 /* LeaderBoardView.swift */,
 				B79663C029531E5D0050BA58 /* MapView.swift */,
-				B7AACC1F29546DA80055C587 /* DifigianoMapAnnotation.swift */,
 				B79663C8295325D90050BA58 /* ProfileView.swift */,
 				B7AACC1129536F6E0055C587 /* UploadView.swift */,
 				B79B0F432953426C0076368C /* ShopView.swift */,
@@ -220,6 +222,7 @@
 		B7AACC0E29536DA90055C587 /* HelperViews */ = {
 			isa = PBXGroup;
 			children = (
+				B7AACC1F29546DA80055C587 /* DifigianoMapAnnotation.swift */,
 				B7AACC0F29536DC10055C587 /* GoogleSignInButton.swift */,
 				B7AACC212954B2CC0055C587 /* PostDetailView.swift */,
 				B7AACC16295377750055C587 /* ImagePicker.swift */,
@@ -411,6 +414,7 @@
 				B7AACBFF2953545C0055C587 /* LoginView.swift in Sources */,
 				B7AACC1029536DC10055C587 /* GoogleSignInButton.swift in Sources */,
 				B7AACC17295377750055C587 /* ImagePicker.swift in Sources */,
+				B7366C952954D25400F0BFAA /* LocationManager.swift in Sources */,
 				B796639729531D7A0050BA58 /* Difigiano_AppApp.swift in Sources */,
 				B79663CB2953274F0050BA58 /* Contributor.swift in Sources */,
 				B7CC1F7E2954BC4C00F7FA36 /* ColorExtension.swift in Sources */,
