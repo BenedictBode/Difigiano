@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Gönn einfach</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>einfach akzeptieren 😮‍💨</string>
-	<key>GIDClientID</key>
-	<string>233685813571-n431410mkj3hhttsnuvd7kli3g4m5u0o.apps.googleusercontent.com</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -21,6 +15,8 @@
 			</array>
 		</dict>
 	</array>
+	<key>GIDClientID</key>
+	<string>233685813571-n431410mkj3hhttsnuvd7kli3g4m5u0o.apps.googleusercontent.com</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>UnifrakturMaguntia.ttf</string>

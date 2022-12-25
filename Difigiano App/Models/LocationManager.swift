@@ -15,6 +15,10 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.requestLocation()
     }
     
+    func requestLocation() {
+        locationManager.requestLocation()
+    }
+    
     var statusString: String {
         guard let status = locationStatus else {
             return "unknown"

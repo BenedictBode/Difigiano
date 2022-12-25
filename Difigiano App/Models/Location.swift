@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-struct Location {
+struct Location: Equatable {
     
     var latitude: Double
     var longitude: Double

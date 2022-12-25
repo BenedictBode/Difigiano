@@ -7,47 +7,56 @@
 
 import Foundation
 import MapKit
-
 import SwiftUI
-
-
 
 struct MapView: View {
     
     @EnvironmentObject
     private var model: Model
     
-    @State var detailPost: Post?
+    @State private var detailPost: Post?
     
-    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 48.1351, longitude: 11.5820), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    @State var tracking: MapUserTrackingMode = .follow
+    
+    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 48.1004, longitude: 11.5664), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     
     var body: some View {
-        Map(coordinateRegion: $region,annotationItems: model.posts) { post in
+        Map(coordinateRegion: $region,
+            showsUserLocation: true,
+            userTrackingMode: $tracking,
+            annotationItems: model.posts) { post in
             MapAnnotation(coordinate: post.location.cllocation) {
-                DifigianoMapAnnotation(post: post)
-                .gesture(
-                    TapGesture()
-                        .onEnded { _ in
-                            print("tapped on Map Annotation")
-                            detailPost = post
-                        }
-                )
+                PostPreview(post: post, width: 45)
+                    .gesture(
+                        TapGesture()
+                            .onEnded { _ in
+                                self.detailPost = post
+                            }
+                    )
             }
         }
-            .statusBar(hidden: true)
-            .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height*1.1, alignment: .center)
-            .overlay() {
-                if let detailPost = self.detailPost {
-                    PostDetailView(post: detailPost)
-                        .gesture(
-                            TapGesture()
-                                .onEnded { _ in
-                                    print("tapped on Map")
-                                    self.detailPost = nil
-                                }
-                        )
+        .statusBar(hidden: true)
+        .edgesIgnoringSafeArea(.all)
+        .overlay() {
+            VStack() {
+                HStack {
+                    Text(String(model.posts.count))
+                        .font( .custom("UnifrakturMaguntia", size: 40))
+                    Text("D")
+                        .font( .custom("UnifrakturMaguntia", size: 40))
+                        .foregroundColor(Color("difigianoGreen"))
+                }
+                Spacer()
+                if self.detailPost != nil {
+                    PostDetailView(post: $detailPost).environmentObject(model)
                 }
             }
+        }
+        .onAppear {
+            if let lastLocation = self.model.locationManager.lastLocation {
+                self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            }
+        }
     }
 }
 

@@ -15,53 +15,54 @@ struct MainView: View {
     var body: some View {
         
         if model.isSignedIn {
-            
-            TabView{
-                MapView()
-                    .tabItem {
-                        Label {
-                        } icon: {
-                            Image(systemName: "map.fill")
+            NavigationView {
+                TabView{
+                    MapView()
+                        .tabItem {
+                            Label {
+                            } icon: {
+                                Image(systemName: "map.fill")
+                            }
                         }
-                    }
-                    .environmentObject(model)
-                
-                LeaderBoardView()
-                    .tabItem {
-                        Label {
-                        } icon: {
-                            Image(systemName: "crown.fill")
+                        .environmentObject(model)
+                        .toolbarColorScheme(.light, for: .tabBar)
+                    
+                    LeaderBoardView()
+                        .tabItem {
+                            Label {
+                            } icon: {
+                                Image(systemName: "crown.fill")
+                            }
                         }
-                    }
-                    .environmentObject(model)
-                
-                UploadView()
-                    .tabItem {
-                        Label {
-                        } icon: {
-                            Image(systemName: "camera.fill")
+                        .environmentObject(model)
+                    
+                    UploadView()
+                        .tabItem {
+                            Label {
+                            } icon: {
+                                Image(systemName: "camera.fill")
+                            }
                         }
-                    }
-                    .environmentObject(model)
-                
-                /*ShopView()
-                    .tabItem {
-                        Label {
-                        } icon: {
-                            Image(systemName: "bag.fill")
+                        .environmentObject(model)
+                    
+                    /*ShopView()
+                     .tabItem {
+                     Label {
+                     } icon: {
+                     Image(systemName: "bag.fill")
+                     }
+                     }
+                     .environmentObject(model)*/
+                    
+                    UserProfileView()
+                        .tabItem {
+                            Label {
+                            } icon: {
+                                Image(systemName: "person.fill")
+                            }
                         }
-                    }
-                    .environmentObject(model)*/
-                
-                ProfileView()
-                    .tabItem {
-                        Label {
-                        } icon: {
-                            Image(systemName: "person.fill")
-                        }
-                    }
-                    .environmentObject(model)
-                
+                        .environmentObject(model)
+                }
             }
         } else {
             LoginView()

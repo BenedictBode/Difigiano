@@ -40,10 +40,15 @@
 		B7AACC17295377750055C587 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AACC16295377750055C587 /* ImagePicker.swift */; };
 		B7AACC1A29542DAB0055C587 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B7AACC1929542DAB0055C587 /* FirebaseDatabase */; };
 		B7AACC1C2954382E0055C587 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7AACC1B2954382E0055C587 /* GoogleService-Info.plist */; };
-		B7AACC2029546DA80055C587 /* DifigianoMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AACC1F29546DA80055C587 /* DifigianoMapAnnotation.swift */; };
+		B7AACC2029546DA80055C587 /* PostPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AACC1F29546DA80055C587 /* PostPreview.swift */; };
 		B7AACC222954B2CC0055C587 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AACC212954B2CC0055C587 /* PostDetailView.swift */; };
+		B7B8969329587A3700CE431D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B8969229587A3700CE431D /* Constants.swift */; };
+		B7B8969929588B0400CE431D /* EditableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B8969829588B0400CE431D /* EditableTextView.swift */; };
 		B7CC1F7E2954BC4C00F7FA36 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CC1F7D2954BC4C00F7FA36 /* ColorExtension.swift */; };
 		B7CC1F802954BC6500F7FA36 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CC1F7F2954BC6500F7FA36 /* UIImageExtension.swift */; };
+		B7DD62A42955F6D500CE7D5B /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DD62A32955F6D500CE7D5B /* UserProfileView.swift */; };
+		B7DD62A629571F3300CE7D5B /* DifigianoAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DD62A529571F3300CE7D5B /* DifigianoAsyncImage.swift */; };
+		B7DD62A82957347200CE7D5B /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DD62A72957347200CE7D5B /* ViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,10 +97,15 @@
 		B7AACC14295370DC0055C587 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		B7AACC16295377750055C587 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		B7AACC1B2954382E0055C587 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		B7AACC1F29546DA80055C587 /* DifigianoMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifigianoMapAnnotation.swift; sourceTree = "<group>"; };
+		B7AACC1F29546DA80055C587 /* PostPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreview.swift; sourceTree = "<group>"; };
 		B7AACC212954B2CC0055C587 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		B7B8969229587A3700CE431D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B7B8969829588B0400CE431D /* EditableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableTextView.swift; sourceTree = "<group>"; };
 		B7CC1F7D2954BC4C00F7FA36 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		B7CC1F7F2954BC6500F7FA36 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		B7DD62A32955F6D500CE7D5B /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		B7DD62A529571F3300CE7D5B /* DifigianoAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifigianoAsyncImage.swift; sourceTree = "<group>"; };
+		B7DD62A72957347200CE7D5B /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +209,7 @@
 				B79663C6295321AD0050BA58 /* Model.swift */,
 				B79663CA2953274F0050BA58 /* Contributor.swift */,
 				B79663CC295328160050BA58 /* Post.swift */,
+				B7B8969229587A3700CE431D /* Constants.swift */,
 				B79663CE29532A810050BA58 /* Location.swift */,
 				B7366C942954D25400F0BFAA /* LocationManager.swift */,
 			);
@@ -212,9 +223,9 @@
 				B796639829531D7A0050BA58 /* LeaderBoardView.swift */,
 				B79663C029531E5D0050BA58 /* MapView.swift */,
 				B79663C8295325D90050BA58 /* ProfileView.swift */,
+				B7DD62A32955F6D500CE7D5B /* UserProfileView.swift */,
 				B7AACC1129536F6E0055C587 /* UploadView.swift */,
 				B79B0F432953426C0076368C /* ShopView.swift */,
-				B7AACBFE2953545C0055C587 /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,10 +233,13 @@
 		B7AACC0E29536DA90055C587 /* HelperViews */ = {
 			isa = PBXGroup;
 			children = (
-				B7AACC1F29546DA80055C587 /* DifigianoMapAnnotation.swift */,
+				B7AACC1F29546DA80055C587 /* PostPreview.swift */,
 				B7AACC0F29536DC10055C587 /* GoogleSignInButton.swift */,
+				B7AACBFE2953545C0055C587 /* LoginView.swift */,
+				B7B8969829588B0400CE431D /* EditableTextView.swift */,
 				B7AACC212954B2CC0055C587 /* PostDetailView.swift */,
 				B7AACC16295377750055C587 /* ImagePicker.swift */,
+				B7DD62A529571F3300CE7D5B /* DifigianoAsyncImage.swift */,
 			);
 			path = HelperViews;
 			sourceTree = "<group>";
@@ -243,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				B7CC1F7D2954BC4C00F7FA36 /* ColorExtension.swift */,
+				B7DD62A72957347200CE7D5B /* ViewExtension.swift */,
 				B7CC1F7F2954BC6500F7FA36 /* UIImageExtension.swift */,
 			);
 			path = Extensions;
@@ -397,14 +412,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7B8969329587A3700CE431D /* Constants.swift in Sources */,
 				B7AACC0629535BB00055C587 /* Authentication.swift in Sources */,
 				B7AACC1229536F6E0055C587 /* UploadView.swift in Sources */,
+				B7B8969929588B0400CE431D /* EditableTextView.swift in Sources */,
 				B79663C129531E5D0050BA58 /* MapView.swift in Sources */,
 				B7CC1F802954BC6500F7FA36 /* UIImageExtension.swift in Sources */,
 				B79663C5295320430050BA58 /* MainView.swift in Sources */,
 				B79663C9295325D90050BA58 /* ProfileView.swift in Sources */,
+				B7DD62A82957347200CE7D5B /* ViewExtension.swift in Sources */,
 				B79B0F442953426C0076368C /* ShopView.swift in Sources */,
-				B7AACC2029546DA80055C587 /* DifigianoMapAnnotation.swift in Sources */,
+				B7DD62A42955F6D500CE7D5B /* UserProfileView.swift in Sources */,
+				B7AACC2029546DA80055C587 /* PostPreview.swift in Sources */,
 				B79663CD295328160050BA58 /* Post.swift in Sources */,
 				B7AACC15295370DC0055C587 /* DataStorage.swift in Sources */,
 				B7AACC222954B2CC0055C587 /* PostDetailView.swift in Sources */,
@@ -413,6 +432,7 @@
 				B79663C7295321AD0050BA58 /* Model.swift in Sources */,
 				B7AACBFF2953545C0055C587 /* LoginView.swift in Sources */,
 				B7AACC1029536DC10055C587 /* GoogleSignInButton.swift in Sources */,
+				B7DD62A629571F3300CE7D5B /* DifigianoAsyncImage.swift in Sources */,
 				B7AACC17295377750055C587 /* ImagePicker.swift in Sources */,
 				B7366C952954D25400F0BFAA /* LocationManager.swift in Sources */,
 				B796639729531D7A0050BA58 /* Difigiano_AppApp.swift in Sources */,
@@ -504,7 +524,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -558,7 +578,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -581,11 +601,15 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Difigiano-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Difigiano;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Gönn einfach";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "einfach akzeptieren 😮‍💨";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -593,9 +617,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.benedict.Difigiano;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -612,11 +639,15 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Difigiano-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Difigiano;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Gönn einfach";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "einfach akzeptieren 😮‍💨";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -624,9 +655,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.benedict.Difigiano;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

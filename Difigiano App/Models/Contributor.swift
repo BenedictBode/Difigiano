@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Contributor: Identifiable {
+struct Contributor: Identifiable, Equatable {
     
     var id: String
     var points: Int = Int.random(in: 0...100)
@@ -54,5 +54,9 @@ struct Contributor: Identifiable {
         self.points = points
         self.name = name
         self.imageURL = imageURL
+    }
+    
+    static func == (lhs: Contributor, rhs: Contributor) -> Bool {
+        lhs.id == rhs.id
     }
 }

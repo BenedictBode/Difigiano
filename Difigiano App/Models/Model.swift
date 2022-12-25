@@ -17,8 +17,9 @@ class Model: ObservableObject {
     init () {
         subscribeToSignedIn()
         subscribeToPosts()
-        subscribeToUsers()        
+        subscribeToUsers()
     }
+    
     
     @Published var currentUser: Contributor?
     

@@ -14,10 +14,42 @@
             filePath = "Difigiano App/Models/Post.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "init(from:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "416B363D-F679-4FD1-8A4F-2E0BFCAB4E4C - 566f9f4ba5d5515a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Difigiano_App.Post.init(from: __C.NSDictionary) throws -&gt; Difigiano_App.Post"
+                  moduleName = "Difigiano App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bene/Desktop/Difigiano%20App/Difigiano%20App/Models/Post.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "872">
+               </Location>
+               <Location
+                  uuid = "416B363D-F679-4FD1-8A4F-2E0BFCAB4E4C - 566f9f4ba5d5515a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Difigiano_App.Post.init(from: __C.NSDictionary) throws -&gt; Difigiano_App.Post"
+                  moduleName = "Difigiano App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bene/Desktop/Difigiano%20App/Difigiano%20App/Models/Post.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "1396">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -94,8 +126,8 @@
             filePath = "Difigiano App/Models/Model.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "subscribeToUsers()"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +158,8 @@
             filePath = "Difigiano App/Models/LocationManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "locationManager(_:didChangeAuthorization:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,10 +174,74 @@
             filePath = "Difigiano App/Models/LocationManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "locationManager(_:didUpdateLocations:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B26EC2D7-F352-4CD8-9AFA-3A79EBAD0E17"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Difigiano App/Views/UploadView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "distanceToClosestPost(userLocation:posts:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "33A8CEFF-59AA-4607-9453-F59FEAF12A47"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Difigiano App/Views/UploadView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "distanceToClosestPost(userLocation:posts:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "33A8CEFF-59AA-4607-9453-F59FEAF12A47 - c012ff7326b3933c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Difigiano_App.UploadView.distanceToClosestPost(userLocation: __C.CLLocation) -&gt; Swift.Int"
+                  moduleName = "Difigiano App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bene/Desktop/Difigiano%20App/Difigiano%20App/Views/UploadView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "33A8CEFF-59AA-4607-9453-F59FEAF12A47 - 6da2e35ed23f0c94"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Difigiano_App.Post) -&gt; Swift.Int in Difigiano_App.UploadView.distanceToClosestPost(userLocation: __C.CLLocation) -&gt; Swift.Int"
+                  moduleName = "Difigiano App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bene/Desktop/Difigiano%20App/Difigiano%20App/Views/UploadView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "120">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

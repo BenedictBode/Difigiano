@@ -48,6 +48,24 @@ class DataStorage {
         database.reference(withPath: "users").child(contributor.id).setValue(contributor.asDictonary())
     }
     
+    static func deleteFromStorage(post: Post) {
+        database.reference(withPath: "posts").child(post.id.uuidString).removeValue { error, _ in
+            if let error = error {
+                print(error)
+            }
+        }
+        storage.reference(forURL: post.imageURL.absoluteString).delete { error in
+            if let error = error {
+                print(error)
+            }
+        }
+        storage.reference(forURL: post.previewImageURL.absoluteString).delete { error in
+            if let error = error {
+                print(error)
+            }
+        }
+    }
+    
     static func loadImageFromStorage (path: String, completion: @escaping (UIImage) -> ()) {
         storage.reference(withPath: path).getData(maxSize: (1 * 1024 * 1024)) { (data, error) in
             if let err = error {

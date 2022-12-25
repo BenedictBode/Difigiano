@@ -13,25 +13,24 @@ struct LeaderBoardView: View {
     private var model: Model
     
     var body: some View {
-        List {
-            ForEach(model.users.sorted(by: Contributor.compByPoints)) { user in
-                HStack {
-                    AsyncImage(url: user.imageURL,
-                        content: { image in
-                            image.resizable()
-                                 .aspectRatio(contentMode: .fit)
-                                 .frame(maxWidth: 50, maxHeight: 50)
-                                 .clipShape(Circle())
-                        },
-                        placeholder: {
-                            ProgressView()
-                        }
-                    )
-                    Text(user.name)
-                        .font( .custom("UnifrakturMaguntia", size: 30))
-                    Spacer()
-                    Text(String(user.points))
-                        .font( .custom("UnifrakturMaguntia", size: 40))
+        VStack {
+            Text(String(model.users.count) + "🥷")
+                .font( .custom("UnifrakturMaguntia", size: 30))
+            
+            
+            List {
+                ForEach(model.users.sorted(by: Contributor.compByPoints)) { user in
+                    HStack {
+                        DifigianoAsyncImage(width: 50, imageURL: user.imageURL)
+                        Text(user.name)
+                            .font( .custom("UnifrakturMaguntia", size: 30))
+                        Spacer()
+                        Text(String(user.points))
+                            .font( .custom("UnifrakturMaguntia", size: 30))
+                        Text("P")
+                            .font( .custom("UnifrakturMaguntia", size: 30))
+                            .foregroundColor(Color("difigianoGreen"))
+                    }
                 }
             }
         }

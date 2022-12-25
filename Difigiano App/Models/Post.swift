@@ -15,11 +15,61 @@ class Post: Identifiable {
     var id: UUID = UUID()
     var creatorId: String
     var location: Location
+    var dist: Int // distance to closest post at creation in meter
     var descrition: String? = "my best post so far"
     var imageURL: URL
     var previewImageURL: URL
     
     var timestamp: Date = Date()
+    
+    enum RewardClass {
+        case toClose
+        case ground
+        case newRegion
+        case newCity
+    }
+    
+    var points: Int {
+        switch rewardClass {
+        case .toClose:
+            return 0
+        case .ground:
+            return 1
+        case .newRegion:
+            return 3
+        case .newCity:
+            return 10
+        }
+    }
+    
+    var color: Color {
+        switch rewardClass {
+        case .toClose:
+            return Color(.black)
+        case .ground:
+            return Color("postClassColor1")
+        case .newRegion:
+            return Color("postClassColor2")
+        case .newCity:
+            return Color("postClassColor3")
+        }
+    }
+    
+    var rewardClass: RewardClass {
+        Post.calcRewardClass(dist: dist)
+    }
+    
+    static func calcRewardClass(dist: Int) -> RewardClass {
+        if dist < 15 {
+            return .toClose
+        } else if dist <= 1000 {
+            return .ground
+        } else if dist <= 50000 {
+            return .newRegion
+        } else {
+            return .newCity
+        }
+    }
     
     func asDictonary() -> NSDictionary {
         [
@@ -29,7 +79,8 @@ class Post: Identifiable {
             "descrition": descrition ?? "",
             "timestamp": timestamp.timeIntervalSince1970,
             "previewImageURL": previewImageURL.absoluteString,
-            "imageURL": imageURL.absoluteString
+            "imageURL": imageURL.absoluteString,
+            "dist": dist
         ]
     }
     
@@ -43,12 +94,12 @@ class Post: Identifiable {
                 let previewImageURLStringValue = dict["previewImageURL"] as? String,
                 let imageURLStringValue = dict["imageURL"] as? String,
                 let previewImageURLValue = URL(string: previewImageURLStringValue),
-                let imageURLValue = URL(string: imageURLStringValue)
+                let imageURLValue = URL(string: imageURLStringValue),
+                let distValue = dict["dist"] as? Int
         else {
             throw ParsingError.invalidFormat
         }
          
-        
         id = idValue
         creatorId = creatorIdValue
         location = try Location(from: locationDictValue)
@@ -56,16 +107,19 @@ class Post: Identifiable {
         timestamp = Date(timeIntervalSince1970: timestampValue)
         imageURL = imageURLValue
         previewImageURL = previewImageURLValue
+        dist = distValue
     }
     
-    init(id: UUID, creatorId: String, location: Location, imageURL: URL, previewImageURL: URL) {
+    init(id: UUID, creatorId: String, location: Location, imageURL: URL, previewImageURL: URL, dist: Int) {
         self.id = id
         self.creatorId = creatorId
         self.location = location
         self.imageURL = imageURL
         self.previewImageURL = previewImageURL
+        self.dist = dist
     }
     
 }
+
 
 
