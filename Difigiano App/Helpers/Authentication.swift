@@ -67,7 +67,7 @@ class Authentication {
             if additionalinfo.isNewUser {
                 if let imageURL = user.profile?.imageURL(withDimension: 200),
                    let displayname = result.user.displayName  {
-                    let newContributor = Contributor(id: result.user.uid, points: 0, name: displayname, imageURL: imageURL)
+                    let newContributor = Contributor(id: result.user.uid, points: 0, name: displayname, imageURL: imageURL, timestamp: Date())
                     DataStorage.persistToStorage(contributor: newContributor)
                 } else {
                     print("could not fetch some user inforamtion")

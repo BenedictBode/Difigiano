@@ -13,16 +13,27 @@ struct UploadView: View {
     @EnvironmentObject
     private var model: Model
     
-    @State var shouldShowImagePicker = true
+    @State var shouldShowImagePicker = false
     @State var image: UIImage?
     @State var userLocation: Location?
     @State var shortestDist: Int?
     
     var body: some View {
         VStack {
-            if let userLocation = self.userLocation {
-                NavigationView {
-                    VStack{
+            HStack {
+                Spacer()
+                NavigationLink(destination: PostInfoView())
+                {
+                    Image(systemName: "questionmark.circle")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 30, height: 30)
+                        .padding(20)
+                }
+            }
+            if let userLocation = self.userLocation, let shortestDist = self.shortestDist {
+                if Post.calcRewardClass(dist: shortestDist) != .toClose {
+                    NavigationView {
                         Button {
                             shouldShowImagePicker.toggle()
                         } label: {
@@ -34,43 +45,59 @@ struct UploadView: View {
                                         .scaledToFill()
                                         .frame(width: 400, height: 400)
                                         .cornerRadius(20)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 5)
+                                                .stroke(Color(Post.color(for: Post.calcRewardClass(dist: shortestDist))), lineWidth: 5)
+                                        )
+                                    
+                                    Button {
+                                        post(image: image, dist: shortestDist, location: userLocation)
+                                    } label: {
+                                        Image(systemName: "paperplane")
+                                            .font(.system(size: 40))
+                                            .padding()
+                                    }
                                 } else {
                                     Image(systemName: "camera")
                                         .font(.system(size: 100))
                                         .padding()
-                                        .foregroundColor(Color(.label))
                                 }
                             }
                         }
-                        if let shortestDist = shortestDist, let image = image {
-                            if Post.calcRewardClass(dist: shortestDist) != .toClose {
-                                Button {
-                                    post(image: image, dist: shortestDist, location: userLocation)
-                                } label: {
-                                    Image(systemName: "paperplane")
-                                        .font(.system(size: 40))
-                                        .padding()
-                                        .foregroundColor(Color(.label))
-                                }
-                                Text("distance to next ground: " + String(shortestDist) + "m")
-                                    .padding()
-                            } else {
-                                Button() {
-                                    model.locationManager.requestLocation()
-                                } label: {
-                                    Text("to close: " + String(shortestDist) + "m")
-                                        .padding()
-                                        .foregroundColor(.accentColor)
-                                }
-                            }
+                        if shortestDist < 1000 {
+                            Text("erster Ground im Umkreis von " + String(shortestDist) + "m")
+                                .padding()
+                                .foregroundColor(.black)
+                        } else {
+                            Text("erster Ground im Umkreis von " + String(shortestDist/1000) + "km")
+                                .padding()
+                                .foregroundColor(.black)
                         }
                     }
-                }
-                .fullScreenCover(isPresented: $shouldShowImagePicker, onDismiss: nil) {
-                    ImagePicker(image: $image, sourceType: .camera)
+                    .fullScreenCover(isPresented: $shouldShowImagePicker, onDismiss: nil) {
+                        ImagePicker(image: $image, sourceType: .camera)
+                    }
+                } else {
+                    Text("zu nah an nächstem Ground (" + String(shortestDist) + "m)")
                 }
             } else {
-                Text("currently no location available")
+                Text("Standort nicht verfügbar")
+                ProgressView()
+            }
+            Button() {
+                model.locationManager.requestLocation()
+            } label: {
+                Text("Standort neu laden")
+                    .padding()
+                    .foregroundColor(.accentColor)
+            }
+        }
+        .onAppear() {
+            if let userLocation = self.model.locationManager.lastLocation {
+                self.userLocation = userLocation
+                shortestDist = self.distanceToClosestPost(userLocation: CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude), posts: model.posts)
+            } else {
+                self.model.locationManager.requestLocation()
             }
         }
         .onReceive(self.model.locationManager.$lastLocation) { userLocation in
@@ -101,28 +128,31 @@ struct UploadView: View {
         
         let postId = UUID()
         
+        self.image = nil
+        var post = Post(id: postId,
+                        creatorId: currentUser.id,
+                        location: location,
+                        imageURL: URL(filePath: "Difigiano"),
+                        previewImageURL: URL(filePath: "Difigiano"),
+                        dist: dist
+        )
+        self.model.posts.append(post)
+        
         DataStorage.persistToStorage(image: bigImage, path: "postImages/" + postId.uuidString) { imageURL in
             
+            post.imageURL = imageURL
             DataStorage.persistToStorage(image: previewImage, path: "postPreviewImages/" + postId.uuidString) { imagePreviewURL in
                 
-                let post = Post(id: postId,
-                                creatorId: currentUser.id,
-                                location: location,
-                                imageURL: imageURL,
-                                previewImageURL: imagePreviewURL,
-                                dist: dist
-                )
+                post.previewImageURL = imagePreviewURL
                 
                 DataStorage.persistToStorage(post: post)
                 
                 currentUser.points += post.points
                 DataStorage.persistToStorage(contributor: currentUser)
-                
-                self.image = nil
             }
         }
     }
-        
+    
     
     func distanceToClosestPost(userLocation: CLLocation, posts: [Post]) -> Int {
         return posts.map {

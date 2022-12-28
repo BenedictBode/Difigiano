@@ -22,7 +22,7 @@ struct PostDetailView: View {
             VStack(alignment: .center) {
                 HStack{
                     Text(post.timestamp.formatted())
-                        .font( .custom("UnifrakturMaguntia", size: 30))
+                        .font(.title)
                     Spacer()
                     Button() {
                         self.post = nil
@@ -36,7 +36,7 @@ struct PostDetailView: View {
                 .padding()
                 
                 DifigianoAsyncImage(imageURL: post.imageURL)
-                    .padding(.horizontal)
+                    .padding()
 
                 if showsCreator {
                     if let creator = model.users.first(where: {post.creatorId == $0.id}) {
@@ -46,9 +46,8 @@ struct PostDetailView: View {
                             {
                                 HStack {
                                     DifigianoAsyncImage(width: 50, imageURL: creator.imageURL)
-                                    Text("grounded by " + creator.name)
+                                    Text(creator.name)
                                         .multilineTextAlignment(.leading)
-                                        .font( .custom("UnifrakturMaguntia", size: 15))
                                 }
                                 
                             }
@@ -72,7 +71,7 @@ struct PostDetailView: View {
             .background(post.color)
             .foregroundColor(Color("foregroundColor"))
             .modifier(CardModifier())
-            .padding(.all)
+            .padding()
             
         }
     }
@@ -85,15 +84,6 @@ struct PostDetailView: View {
         DataStorage.deleteFromStorage(post: post)
         model.posts.removeAll(where: {$0.id == post.id})
         self.post = nil
-    }
-    
-}
-
-struct CardModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .cornerRadius(6)
-            .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 0)
     }
     
 }

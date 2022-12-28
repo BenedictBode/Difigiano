@@ -15,6 +15,7 @@ struct Contributor: Identifiable, Equatable {
     var name: String
     var isAdmin: Bool = false
     var imageURL: URL = URL(string: "https://hws.dev/paul.jpg")!
+    var timestamp: Date
     var posts: [Post] = []
     
     static func compByPoints(user1: Contributor, user2: Contributor) -> Bool {
@@ -27,7 +28,8 @@ struct Contributor: Identifiable, Equatable {
             "points": points,
             "name": name,
             "isAdmin": isAdmin,
-            "imageURL": imageURL.absoluteString
+            "imageURL": imageURL.absoluteString,
+            "timestamp": timestamp.timeIntervalSince1970
         ]
     }
     
@@ -37,7 +39,8 @@ struct Contributor: Identifiable, Equatable {
               let nameValue = dict["name"] as? String,
               let isAdminValue = dict["isAdmin"] as? Bool,
               let imageURLStringValue = dict["imageURL"] as? String,
-              let imageURLValue = URL(string: imageURLStringValue)
+              let imageURLValue = URL(string: imageURLStringValue),
+              let timeintervalSince1970Value = dict["timestamp"] as? Double
         else {
             throw ParsingError.invalidFormat
         }
@@ -47,13 +50,15 @@ struct Contributor: Identifiable, Equatable {
         points = pointsValue
         isAdmin = isAdminValue
         imageURL = imageURLValue
+        timestamp = Date(timeIntervalSince1970: timeintervalSince1970Value)
     }
     
-    init(id: String, points: Int, name: String, imageURL: URL) {
+    init(id: String, points: Int, name: String, imageURL: URL, timestamp: Date) {
         self.id = id
         self.points = points
         self.name = name
         self.imageURL = imageURL
+        self.timestamp = timestamp
     }
     
     static func == (lhs: Contributor, rhs: Contributor) -> Bool {

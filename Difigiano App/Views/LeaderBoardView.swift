@@ -15,31 +15,27 @@ struct LeaderBoardView: View {
     var body: some View {
         VStack {
             Text(String(model.users.count) + "🥷")
-                .font( .custom("UnifrakturMaguntia", size: 30))
-            
+                .font(.title)
             
             List {
                 ForEach(model.users.sorted(by: Contributor.compByPoints)) { user in
-                    HStack {
-                        DifigianoAsyncImage(width: 50, imageURL: user.imageURL)
-                        Text(user.name)
-                            .font( .custom("UnifrakturMaguntia", size: 30))
-                        Spacer()
-                        Text(String(user.points))
-                            .font( .custom("UnifrakturMaguntia", size: 30))
-                        Text("P")
-                            .font( .custom("UnifrakturMaguntia", size: 30))
-                            .foregroundColor(Color("difigianoGreen"))
+                    NavigationLink(destination: ProfileView(user: user,
+                                                            usersPosts: self.model.posts.filter({$0.creatorId == user.id})).environmentObject(model))
+                    {
+                        HStack {
+                            DifigianoAsyncImage(width: 50, imageURL: user.imageURL)
+                            Text(user.name)
+                                .font(.headline)
+                            Spacer()
+                            Text(String(user.points))
+                                .font(.title)
+                            Text("P")
+                                .font( .custom("UnifrakturMaguntia", size: 30))
+                                .foregroundColor(Color("difigianoGreen"))
+                        }
                     }
                 }
             }
         }
-    }
-}
-
-struct LeaderBoardView_Previews: PreviewProvider {
-    static var previews: some View {
-        LeaderBoardView()
-            .environmentObject(Model())
     }
 }

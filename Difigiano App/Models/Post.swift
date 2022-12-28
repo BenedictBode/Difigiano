@@ -43,16 +43,7 @@ class Post: Identifiable {
     }
     
     var color: Color {
-        switch rewardClass {
-        case .toClose:
-            return Color(.black)
-        case .ground:
-            return Color("postClassColor1")
-        case .newRegion:
-            return Color("postClassColor2")
-        case .newCity:
-            return Color("postClassColor3")
-        }
+        Post.color(for: rewardClass)
     }
     
     var rewardClass: RewardClass {
@@ -68,6 +59,19 @@ class Post: Identifiable {
             return .newRegion
         } else {
             return .newCity
+        }
+    }
+    
+    static func color(for rewardClass: RewardClass) -> Color {
+        switch rewardClass {
+        case .toClose:
+            return Color(.black)
+        case .ground:
+            return Color("postClassColor1")
+        case .newRegion:
+            return Color("postClassColor2")
+        case .newCity:
+            return Color("postClassColor3")
         }
     }
     

@@ -21,7 +21,7 @@ struct ProfileView: View {
     var usersPosts: [Post]
     var hasEditingRights = false
     
-    private let topInfoFontSize = CGFloat(25)
+    private let topInfoFontSize = CGFloat(22)
     private let threeColumnGrid = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
@@ -31,7 +31,7 @@ struct ProfileView: View {
                 user.name = name
                 DataStorage.persistToStorage(contributor: user)
             }
-            .font( .custom("UnifrakturMaguntia", size: 40))
+            .font(.largeTitle)
             .padding()
             
             DifigianoAsyncImage(width: 150, imageURL: user.imageURL)
@@ -45,8 +45,9 @@ struct ProfileView: View {
                     Text("D")
                         .font( .custom("UnifrakturMaguntia", size: topInfoFontSize))
                         .foregroundColor(Color("difigianoGreen"))
+                        .padding(2)
                     Text(String(usersPosts.count))
-                        .font( .custom("UnifrakturMaguntia", size: topInfoFontSize))
+                        .font( .system(size: topInfoFontSize))
                 }
                 .frame(maxWidth: .infinity)
                 VStack {
@@ -54,16 +55,18 @@ struct ProfileView: View {
                     Text("P")
                         .font( .custom("UnifrakturMaguntia", size: topInfoFontSize))
                         .foregroundColor(Color("difigianoGreen"))
+                        .padding(2)
                     Text(String(user.points))
-                        .font( .custom("UnifrakturMaguntia", size: topInfoFontSize))
+                        .font( .system(size: topInfoFontSize))
                 }
                 .frame(maxWidth: .infinity)
                 VStack {
                     //Image(systemName: "calendar")
                     Text("🗓️")
                         .font(.system(size: topInfoFontSize))
+                        .padding(2)
                     Text(usersPosts.min(by: {$0.timestamp < $1.timestamp})?.timestamp.formatted(date: .numeric, time: .omitted) ?? "-")
-                        .font( .custom("UnifrakturMaguntia", size: topInfoFontSize))
+                        .font( .system(size: topInfoFontSize))
                 }
                 .frame(maxWidth: .infinity)
             }.padding()

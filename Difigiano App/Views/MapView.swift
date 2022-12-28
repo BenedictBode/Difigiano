@@ -18,13 +18,12 @@ struct MapView: View {
     
     @State var tracking: MapUserTrackingMode = .follow
     
-    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 48.1004, longitude: 11.5664), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+    @State var region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.1657, longitude: 10.45), span: MKCoordinateSpan(latitudeDelta: 5, longitudeDelta: 5))
+    
+    @State var lastLocation: Location?
     
     var body: some View {
-        Map(coordinateRegion: $region,
-            showsUserLocation: true,
-            userTrackingMode: $tracking,
-            annotationItems: model.posts) { post in
+        Map(coordinateRegion: $region, annotationItems: model.posts) { post in
             MapAnnotation(coordinate: post.location.cllocation) {
                 PostPreview(post: post, width: 45)
                     .gesture(
@@ -41,7 +40,8 @@ struct MapView: View {
             VStack() {
                 HStack {
                     Text(String(model.posts.count))
-                        .font( .custom("UnifrakturMaguntia", size: 40))
+                        .font(.system(size: 40))
+                        .bold()
                     Text("D")
                         .font( .custom("UnifrakturMaguntia", size: 40))
                         .foregroundColor(Color("difigianoGreen"))
@@ -50,19 +50,31 @@ struct MapView: View {
                 if self.detailPost != nil {
                     PostDetailView(post: $detailPost).environmentObject(model)
                 }
+                if let lastLocation = self.lastLocation {
+                    HStack {
+                        Spacer()
+                        Button() {
+                            self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                        } label: {
+                            Image(systemName: "location.north.circle")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 50, height: 50)
+                                .padding(20)
+                        }
+                    }
+                }
             }
+        }
+        .onChange(of: self.model.locationManager.lastLocation) { lastLocation in
+            self.lastLocation = lastLocation
         }
         .onAppear {
             if let lastLocation = self.model.locationManager.lastLocation {
-                self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                self.lastLocation = lastLocation
+            } else {
+                self.model.locationManager.requestLocation()
             }
         }
-    }
-}
-
-struct MapOverview_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView()
-            .environmentObject(Model())
     }
 }

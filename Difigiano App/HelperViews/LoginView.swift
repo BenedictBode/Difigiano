@@ -32,7 +32,7 @@ struct LoginView: View {
         Spacer()
         
         Text("by Bene Bode")
-            .font(.custom("UnifrakturMaguntia", size: 12))
+            .font(.caption)
     }
   }
 }
