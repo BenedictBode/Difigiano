@@ -34,44 +34,46 @@ struct UploadView: View {
             if let userLocation = self.userLocation, let shortestDist = self.shortestDist {
                 if Post.calcRewardClass(dist: shortestDist) != .toClose {
                     NavigationView {
-                        Button {
-                            shouldShowImagePicker.toggle()
-                        } label: {
-                            
-                            VStack {
-                                if let image = self.image {
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 400, height: 400)
-                                        .cornerRadius(20)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 5)
-                                                .stroke(Color(Post.color(for: Post.calcRewardClass(dist: shortestDist))), lineWidth: 5)
-                                        )
-                                    
-                                    Button {
-                                        post(image: image, dist: shortestDist, location: userLocation)
-                                    } label: {
-                                        Image(systemName: "paperplane")
-                                            .font(.system(size: 40))
+                        VStack {
+                            Button {
+                                shouldShowImagePicker.toggle()
+                            } label: {
+                                
+                                VStack {
+                                    if let image = self.image {
+                                        Image(uiImage: image)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 400, height: 400)
+                                            .cornerRadius(6)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 6)
+                                                    .stroke(Post.color(for: Post.calcRewardClass(dist: shortestDist)), lineWidth: 5)
+                                            )
+                                        
+                                        Button {
+                                            post(image: image, dist: shortestDist, location: userLocation)
+                                        } label: {
+                                            Image(systemName: "paperplane")
+                                                .font(.system(size: 40))
+                                                .padding()
+                                        }
+                                    } else {
+                                        Image(systemName: "camera")
+                                            .font(.system(size: 100))
                                             .padding()
                                     }
-                                } else {
-                                    Image(systemName: "camera")
-                                        .font(.system(size: 100))
-                                        .padding()
                                 }
                             }
-                        }
-                        if shortestDist < 1000 {
-                            Text("erster Ground im Umkreis von " + String(shortestDist) + "m")
-                                .padding()
-                                .foregroundColor(.black)
-                        } else {
-                            Text("erster Ground im Umkreis von " + String(shortestDist/1000) + "km")
-                                .padding()
-                                .foregroundColor(.black)
+                            if shortestDist < 1000 {
+                                Text("erster Ground im Umkreis von " + String(shortestDist) + "m")
+                                    .padding()
+                                    .foregroundColor(.black)
+                            } else {
+                                Text("erster Ground im Umkreis von " + String(shortestDist/1000) + "km")
+                                    .padding()
+                                    .foregroundColor(.black)
+                            }
                         }
                     }
                     .fullScreenCover(isPresented: $shouldShowImagePicker, onDismiss: nil) {

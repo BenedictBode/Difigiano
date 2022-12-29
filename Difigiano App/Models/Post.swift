@@ -16,7 +16,7 @@ class Post: Identifiable {
     var creatorId: String
     var location: Location
     var dist: Int // distance to closest post at creation in meter
-    var descrition: String? = "my best post so far"
+    var descrition: String?
     var imageURL: URL
     var previewImageURL: URL
     

@@ -27,6 +27,7 @@ struct ProfileView: View {
     var body: some View {
         VStack {
             EditableLabel($name, isEditingAllowed: hasEditingRights) {
+                name = String(name.prefix(18))
                 var user = user
                 user.name = name
                 DataStorage.persistToStorage(contributor: user)
@@ -37,14 +38,13 @@ struct ProfileView: View {
             DifigianoAsyncImage(width: 150, imageURL: user.imageURL)
                 .clipShape(Circle())
                 .onTapGesture(count: 2) {
-                    shouldShowImagePicker = true
+                    shouldShowImagePicker = hasEditingRights
                 }
             HStack {
                 VStack {
                     //Image(systemName: "crown")
-                    Text("D")
-                        .font( .custom("UnifrakturMaguntia", size: topInfoFontSize))
-                        .foregroundColor(Color("difigianoGreen"))
+                    Text("🧤")
+                        .font( .system(size: topInfoFontSize))
                         .padding(2)
                     Text(String(usersPosts.count))
                         .font( .system(size: topInfoFontSize))
@@ -52,7 +52,7 @@ struct ProfileView: View {
                 .frame(maxWidth: .infinity)
                 VStack {
                     //Image(systemName: "paperplane")
-                    Text("P")
+                    Text("D")
                         .font( .custom("UnifrakturMaguntia", size: topInfoFontSize))
                         .foregroundColor(Color("difigianoGreen"))
                         .padding(2)

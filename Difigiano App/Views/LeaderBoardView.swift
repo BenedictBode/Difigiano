@@ -27,15 +27,39 @@ struct LeaderBoardView: View {
                             Text(user.name)
                                 .font(.headline)
                             Spacer()
-                            Text(String(user.points))
-                                .font(.title)
-                            Text("P")
-                                .font( .custom("UnifrakturMaguntia", size: 30))
-                                .foregroundColor(Color("difigianoGreen"))
+                            Group {
+                                Text(String(user.points))
+                                    .font(.system(size: 25))
+                                    .bold()
+                                Text("D")
+                                    .font( .custom("UnifrakturMaguntia", size: 30))
+                                    .foregroundColor(Color("difigianoGreen"))
+                            }
                         }
                     }
                 }
             }
+            if model.currentUser?.isAdmin ?? false {
+                Button() {
+                    recalculatePoints()
+                } label: {
+                    Text("recalculate points")
+                        .padding()
+                }
+            }
+        }
+    }
+    
+    func recalculatePoints() {
+        for (i, user) in model.users.enumerated() {
+            let userPoints = model.posts.filter({$0.creatorId == user.id}).map(\.points).reduce(0, +)
+            if userPoints != user.points {
+                var user = user
+                user.points = userPoints
+                model.users[i] = user
+                DataStorage.persistToStorage(contributor: user)
+            }
+            
         }
     }
 }

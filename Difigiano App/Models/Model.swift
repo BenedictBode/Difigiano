@@ -37,6 +37,7 @@ class Model: ObservableObject {
             if let uid = Auth.auth().currentUser?.uid {
                 self.isSignedIn = true
                 self.uid = uid
+                self.updateCurrentUser()
             } else {
                 self.isSignedIn = false
             }
@@ -60,15 +61,20 @@ class Model: ObservableObject {
             }
             self.users = updatedUsers
             
-            if let uid = self.uid, let currentUser = self.users.first(where: {$0.id == uid}) {
-                self.currentUser = currentUser
-            } else {
-                print("could not find user in users??!")
-            }
+            self.updateCurrentUser()
             
             print("updated users now " + String(self.users.count))
         }) { error in
             print(error.localizedDescription)
+        }
+    }
+    
+    func updateCurrentUser() {
+        if let uid = self.uid, let currentUser = self.users.first(where: {$0.id == uid}) {
+            self.currentUser = currentUser
+        } else {
+            print("could not find user in users??!")
+            self.currentUser = nil
         }
     }
     

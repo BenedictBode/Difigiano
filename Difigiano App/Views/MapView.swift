@@ -39,16 +39,13 @@ struct MapView: View {
         .overlay() {
             VStack() {
                 HStack {
-                    Text(String(model.posts.count))
+                    Text(String(model.posts.count) + "🧤")
                         .font(.system(size: 40))
                         .bold()
-                    Text("D")
-                        .font( .custom("UnifrakturMaguntia", size: 40))
-                        .foregroundColor(Color("difigianoGreen"))
                 }
                 Spacer()
                 if self.detailPost != nil {
-                    PostDetailView(post: $detailPost).environmentObject(model)
+                    PostDetailView(post: $detailPost, showsDeleteButton: model.currentUser?.isAdmin ?? false).environmentObject(model)
                 }
                 if let lastLocation = self.lastLocation {
                     HStack {
@@ -59,7 +56,7 @@ struct MapView: View {
                             Image(systemName: "location.north.circle")
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 50, height: 50)
+                                .frame(width: 40, height: 40)
                                 .padding(20)
                         }
                     }
