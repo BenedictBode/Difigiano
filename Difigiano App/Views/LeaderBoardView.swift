@@ -31,9 +31,10 @@ struct LeaderBoardView: View {
                                 Text(String(user.points))
                                     .font(.system(size: 25))
                                     .bold()
-                                Text("D")
-                                    .font( .custom("UnifrakturMaguntia", size: 30))
-                                    .foregroundColor(Color("difigianoGreen"))
+                                Image("points")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .padding(2)
                             }
                         }
                     }

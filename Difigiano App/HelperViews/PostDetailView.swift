@@ -19,60 +19,59 @@ struct PostDetailView: View {
         
     var body: some View {
         if let post = self.post {
-            VStack(alignment: .center) {
-                HStack{
-                    Text(post.timestamp.formatted())
-                        .font(.title)
-                    Spacer()
-                    Button() {
-                        self.post = nil
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.system(size: 25))
-                            .foregroundColor(.accentColor)
-                            .shadow(radius: 2)
+            VStack() {
+                VStack(spacing: 10) {
+                    HStack{
+                        Text(post.timestamp.formatted())
+                            .font(.title)
+                        Spacer()
+                        Button() {
+                            self.post = nil
+                        } label: {
+                            Image(systemName: "xmark")
+                                .font(.system(size: 25))
+                                .foregroundColor(.accentColor)
+                                .shadow(radius: 2)
+                        }
+                    }
+                    
+                    DifigianoAsyncImage(imageURL: post.imageURL)
+                    
+                    if showsCreator {
+                        if let creator = model.users.first(where: {post.creatorId == $0.id}) {
+                            HStack {
+                                NavigationLink(destination: ProfileView(user: creator,
+                                                                        usersPosts: self.model.posts.filter({$0.creatorId == creator.id})).environmentObject(model))
+                                {
+                                    HStack {
+                                        DifigianoAsyncImage(width: 50, imageURL: creator.imageURL)
+                                        Text(creator.name)
+                                            .multilineTextAlignment(.leading)
+                                    }
+                                    
+                                }
+                                Spacer()
+                            }
+                        }
+                    }
+                    if showsDeleteButton {
+                        Button() {
+                            delete(post: post)
+                        } label: {
+                            Image(systemName: "trash")
+                                .font(.system(size: 25))
+                                .foregroundColor(.accentColor)
+                        }
                     }
                 }
                 .padding()
                 
-                DifigianoAsyncImage(imageURL: post.imageURL)
-                    .padding()
-
-                if showsCreator {
-                    if let creator = model.users.first(where: {post.creatorId == $0.id}) {
-                        HStack {
-                            NavigationLink(destination: ProfileView(user: creator,
-                                                                    usersPosts: self.model.posts.filter({$0.creatorId == creator.id})).environmentObject(model))
-                            {
-                                HStack {
-                                    DifigianoAsyncImage(width: 50, imageURL: creator.imageURL)
-                                    Text(creator.name)
-                                        .multilineTextAlignment(.leading)
-                                }
-                                
-                            }
-                            Spacer()
-                        }
-                        .padding()
-                    }
-                }
-                if showsDeleteButton {
-                    Button() {
-                        delete(post: post)
-                    } label: {
-                        Image(systemName: "trash")
-                            .font(.system(size: 25))
-                            .foregroundColor(.accentColor)
-                            .padding()
-                    }
-                }
             }
             .frame(maxWidth: .infinity, alignment: .center)
             .background(post.color)
             .foregroundColor(Color("foregroundColor"))
             .modifier(CardModifier())
             .padding()
-            
         }
     }
     

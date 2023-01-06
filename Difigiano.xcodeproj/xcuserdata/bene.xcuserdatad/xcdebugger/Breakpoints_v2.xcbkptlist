@@ -62,9 +62,9 @@
             filePath = "Difigiano App/Helpers/Authentication.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "authenticateUser(for:with:)"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "authenticateUser(for:imageURL:displayName:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -78,40 +78,55 @@
             filePath = "Difigiano App/Helpers/Authentication.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "authenticateUser(for:with:)"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "authenticateUser(for:imageURL:displayName:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "C7992F1D-4AF5-41F3-85C2-91F667E083B6 - 74a8bf3430697834"
+                  uuid = "C7992F1D-4AF5-41F3-85C2-91F667E083B6 - 1eb81ffa72dbd87a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static Difigiano_App.Authentication.authenticateUser(for: Swift.Optional&lt;__C.GIDGoogleUser&gt;, with: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "Difigiano App"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static Difigiano.Authentication.authenticateUser(for: __C.FIRAuthCredential, imageURL: Swift.Optional&lt;Foundation.URL&gt;, displayName: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Difigiano"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bene/Desktop/Difigiano%20App/Difigiano%20App/Helpers/Authentication.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "1201">
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "1540">
                </Location>
                <Location
-                  uuid = "C7992F1D-4AF5-41F3-85C2-91F667E083B6 - 74a8bf3430697834"
+                  uuid = "C7992F1D-4AF5-41F3-85C2-91F667E083B6 - 1eb81ffa72dbd87a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static Difigiano_App.Authentication.authenticateUser(for: Swift.Optional&lt;__C.GIDGoogleUser&gt;, with: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "Difigiano App"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static Difigiano.Authentication.authenticateUser(for: __C.FIRAuthCredential, imageURL: Swift.Optional&lt;Foundation.URL&gt;, displayName: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Difigiano"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bene/Desktop/Difigiano%20App/Difigiano%20App/Helpers/Authentication.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "1236">
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "1572">
+               </Location>
+               <Location
+                  uuid = "C7992F1D-4AF5-41F3-85C2-91F667E083B6 - 1eb81ffa72dbd87a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static Difigiano.Authentication.authenticateUser(for: __C.FIRAuthCredential, imageURL: Swift.Optional&lt;Foundation.URL&gt;, displayName: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Difigiano"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bene/Desktop/Difigiano%20App/Difigiano%20App/Helpers/Authentication.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "1660">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -142,9 +157,9 @@
             filePath = "Difigiano App/Helpers/Authentication.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "authenticateUser(for:with:)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "authenticateUser(for:imageURL:displayName:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -190,10 +205,10 @@
             filePath = "Difigiano App/Views/UploadView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "distanceToClosestPost(userLocation:posts:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -206,10 +221,10 @@
             filePath = "Difigiano App/Views/UploadView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "distanceToClosestPost(userLocation:posts:)"
-            landmarkType = "9">
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "33A8CEFF-59AA-4607-9453-F59FEAF12A47 - c012ff7326b3933c"
@@ -242,6 +257,149 @@
                   offsetFromSymbolStart = "120">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C676C5B0-F150-4E8C-8EC0-A3C191CE2483"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Difigiano App/Helpers/Authentication.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "authenticateUser(for:imageURL:displayName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "86185CCA-9850-456B-B8E7-894C7D3B1969"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Difigiano App/Helpers/Authentication.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "authenticateUser(for:imageURL:displayName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F56663A1-36A3-4B27-AC15-BF003B590960"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Difigiano App/Helpers/Authentication.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "authenticateUser(for:imageURL:displayName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4DAF2120-7232-4996-8057-DD8B4C61D468"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Difigiano App/Helpers/Authentication.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "authenticateUser(for:imageURL:displayName:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4DAF2120-7232-4996-8057-DD8B4C61D468 - 1eb81ffa72dbd87a"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static Difigiano.Authentication.authenticateUser(for: __C.FIRAuthCredential, imageURL: Swift.Optional&lt;Foundation.URL&gt;, displayName: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Difigiano"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bene/Desktop/Difigiano%20App/Difigiano%20App/Helpers/Authentication.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "1540">
+               </Location>
+               <Location
+                  uuid = "4DAF2120-7232-4996-8057-DD8B4C61D468 - 1eb81ffa72dbd87a"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static Difigiano.Authentication.authenticateUser(for: __C.FIRAuthCredential, imageURL: Swift.Optional&lt;Foundation.URL&gt;, displayName: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Difigiano"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bene/Desktop/Difigiano%20App/Difigiano%20App/Helpers/Authentication.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "1572">
+               </Location>
+               <Location
+                  uuid = "4DAF2120-7232-4996-8057-DD8B4C61D468 - 1eb81ffa72dbd87a"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static Difigiano.Authentication.authenticateUser(for: __C.FIRAuthCredential, imageURL: Swift.Optional&lt;Foundation.URL&gt;, displayName: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Difigiano"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bene/Desktop/Difigiano%20App/Difigiano%20App/Helpers/Authentication.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "1660">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "97DD3B56-1A39-44B5-A92B-E904A9FF9418"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Difigiano App/Helpers/Authentication.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "authenticateUser(for:imageURL:displayName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F47031F3-6A0D-4974-99D0-7405A3077A64"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Difigiano App/HelperViews/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

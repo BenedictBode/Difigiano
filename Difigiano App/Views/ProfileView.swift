@@ -27,10 +27,14 @@ struct ProfileView: View {
     var body: some View {
         VStack {
             EditableLabel($name, isEditingAllowed: hasEditingRights) {
-                name = String(name.prefix(18))
-                var user = user
-                user.name = name
-                DataStorage.persistToStorage(contributor: user)
+                if name.count < 1 {
+                    name = user.name
+                } else {
+                    name = String(name.prefix(18))
+                    var user = user
+                    user.name = name
+                    DataStorage.persistToStorage(contributor: user)
+                }
             }
             .font(.largeTitle)
             .padding()
@@ -52,9 +56,9 @@ struct ProfileView: View {
                 .frame(maxWidth: .infinity)
                 VStack {
                     //Image(systemName: "paperplane")
-                    Text("D")
-                        .font( .custom("UnifrakturMaguntia", size: topInfoFontSize))
-                        .foregroundColor(Color("difigianoGreen"))
+                    Image("points")
+                        .resizable()
+                        .frame(width: topInfoFontSize, height: topInfoFontSize)
                         .padding(2)
                     Text(String(user.points))
                         .font( .system(size: topInfoFontSize))

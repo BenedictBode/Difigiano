@@ -95,11 +95,10 @@ struct UploadView: View {
             }
         }
         .onAppear() {
+            self.model.locationManager.requestLocation()
             if let userLocation = self.model.locationManager.lastLocation {
                 self.userLocation = userLocation
                 shortestDist = self.distanceToClosestPost(userLocation: CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude), posts: model.posts)
-            } else {
-                self.model.locationManager.requestLocation()
             }
         }
         .onReceive(self.model.locationManager.$lastLocation) { userLocation in

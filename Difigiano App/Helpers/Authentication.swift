@@ -15,11 +15,26 @@ class Authentication {
     
     static let auth = Auth.auth()
     
-    static func signIn() {
+    static func GoogleSignIn() {
         // 1
         if GIDSignIn.sharedInstance.hasPreviousSignIn() {
             GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
-                Authentication.authenticateUser(for: user, with: error)
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                guard let user = user else {
+                    return
+                }
+                
+                guard let idToken = user.idToken else {
+                    return
+                }
+                
+                let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: user.accessToken.tokenString)
+                
+                self.authenticateUser(for: credential)
             }
         } else {
             guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
@@ -28,30 +43,28 @@ class Authentication {
             // 5
             GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { result, error in
                 
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
                 
-                self.authenticateUser(for: result?.user, with: error)
+                guard let user = result?.user else {
+                    return
+                }
+                
+                guard let idToken = user.idToken else {
+                    return
+                }
+                
+                let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: user.accessToken.tokenString)
+                
+                self.authenticateUser(for: credential, imageURL: user.profile?.imageURL(withDimension: 200), displayName: user.profile?.name)
             }
         }
     }
     
-    static func authenticateUser(for user: GIDGoogleUser?, with error: Error?) {
-        // 1
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        }
-        
-        guard let user = user else {
-            return
-        }
-        
-        guard let idToken = user.idToken else {
-            return
-        }
-        
-        let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: user.accessToken.tokenString)
-        
-        // 3
+    static func authenticateUser(for credential: AuthCredential, imageURL: URL? = nil, displayName: String? = nil) {
+
         Auth.auth().signIn(with: credential) { (result, error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -65,9 +78,8 @@ class Authentication {
             }
             
             if additionalinfo.isNewUser {
-                if let imageURL = user.profile?.imageURL(withDimension: 200),
-                   let displayname = result.user.displayName  {
-                    let newContributor = Contributor(id: result.user.uid, points: 0, name: displayname, imageURL: imageURL, timestamp: Date())
+                if let displayname = displayName  {
+                    let newContributor = Contributor(id: result.user.uid, points: 0, name: displayname, imageURL: imageURL ?? URL(filePath: "profile-avatar"), timestamp: Date())
                     DataStorage.persistToStorage(contributor: newContributor)
                 } else {
                     print("could not fetch some user inforamtion")

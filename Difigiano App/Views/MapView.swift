@@ -67,10 +67,9 @@ struct MapView: View {
             self.lastLocation = lastLocation
         }
         .onAppear {
+            self.model.locationManager.requestLocation()
             if let lastLocation = self.model.locationManager.lastLocation {
                 self.lastLocation = lastLocation
-            } else {
-                self.model.locationManager.requestLocation()
             }
         }
     }
