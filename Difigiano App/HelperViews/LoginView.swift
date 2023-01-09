@@ -32,7 +32,7 @@ struct LoginView: View {
             Authentication.GoogleSignIn()
         }
         
-        SignInWithAppleButton() { request in
+        DynamicAppleSignIn() { request in
             request.requestedScopes = [.fullName, .email]
             let nonce = randomNonceString()
             self.currentNonce = nonce
@@ -59,8 +59,6 @@ struct LoginView: View {
                 }
             }
         }
-        .frame(height: 40)
-        .padding()
         
         Spacer()
         
@@ -118,5 +116,35 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
+    }
+}
+
+struct DynamicAppleSignIn : View {
+    @Environment(\.colorScheme) var colorScheme
+    
+    var onRequest: (ASAuthorizationAppleIDRequest) -> Void
+    var onCompletion: ((Result<ASAuthorization, Error>) -> Void)
+    
+    var body: some View {
+        
+        switch colorScheme {
+        case .dark:
+            SignInWithAppleButton(
+                onRequest: onRequest,
+                onCompletion: onCompletion
+            ).signInWithAppleButtonStyle(.white)
+                .frame(height: 40)
+                .padding()
+        case .light:
+            SignInWithAppleButton(
+                onRequest: onRequest,
+                onCompletion: onCompletion
+            ).signInWithAppleButtonStyle(.black)
+            .frame(height: 40)
+            .padding()
+        @unknown default:
+            fatalError("Not Yet Implemented")
+        }
+        
     }
 }

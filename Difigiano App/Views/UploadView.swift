@@ -68,11 +68,9 @@ struct UploadView: View {
                             if shortestDist < 1000 {
                                 Text("erster Ground im Umkreis von " + String(shortestDist) + "m")
                                     .padding()
-                                    .foregroundColor(.black)
                             } else {
                                 Text("erster Ground im Umkreis von " + String(shortestDist/1000) + "km")
                                     .padding()
-                                    .foregroundColor(.black)
                             }
                         }
                     }
@@ -130,7 +128,7 @@ struct UploadView: View {
         let postId = UUID()
         
         self.image = nil
-        var post = Post(id: postId,
+        let post = Post(id: postId,
                         creatorId: currentUser.id,
                         location: location,
                         imageURL: URL(filePath: "Difigiano"),

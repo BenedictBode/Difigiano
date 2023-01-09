@@ -46,6 +46,7 @@
 		B7B8969929588B0400CE431D /* EditableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B8969829588B0400CE431D /* EditableTextView.swift */; };
 		B7B8969D295C6FB100CE431D /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B8969C295C6FB100CE431D /* CardModifier.swift */; };
 		B7B896A1295C76A500CE431D /* PostInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B896A0295C76A500CE431D /* PostInfoView.swift */; };
+		B7BC1B0329683F060035EE70 /* ExplainProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BC1B0229683F060035EE70 /* ExplainProfileView.swift */; };
 		B7CC1F7E2954BC4C00F7FA36 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CC1F7D2954BC4C00F7FA36 /* ColorExtension.swift */; };
 		B7CC1F802954BC6500F7FA36 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CC1F7F2954BC6500F7FA36 /* UIImageExtension.swift */; };
 		B7DD62A42955F6D500CE7D5B /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DD62A32955F6D500CE7D5B /* UserProfileView.swift */; };
@@ -106,6 +107,7 @@
 		B7B8969A2958C90000CE431D /* Difigiano.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Difigiano.entitlements; sourceTree = "<group>"; };
 		B7B8969C295C6FB100CE431D /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
 		B7B896A0295C76A500CE431D /* PostInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInfoView.swift; sourceTree = "<group>"; };
+		B7BC1B0229683F060035EE70 /* ExplainProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainProfileView.swift; sourceTree = "<group>"; };
 		B7CC1F7D2954BC4C00F7FA36 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		B7CC1F7F2954BC6500F7FA36 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		B7DD62A32955F6D500CE7D5B /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				B7AACC1F29546DA80055C587 /* PostPreview.swift */,
 				B7AACC0F29536DC10055C587 /* GoogleSignInButton.swift */,
+				B7BC1B0229683F060035EE70 /* ExplainProfileView.swift */,
 				B7B896A0295C76A500CE431D /* PostInfoView.swift */,
 				B7AACBFE2953545C0055C587 /* LoginView.swift */,
 				B7B8969829588B0400CE431D /* EditableTextView.swift */,
@@ -440,6 +443,7 @@
 				B79B0F442953426C0076368C /* ShopView.swift in Sources */,
 				B7DD62A42955F6D500CE7D5B /* UserProfileView.swift in Sources */,
 				B7AACC2029546DA80055C587 /* PostPreview.swift in Sources */,
+				B7BC1B0329683F060035EE70 /* ExplainProfileView.swift in Sources */,
 				B79663CD295328160050BA58 /* Post.swift in Sources */,
 				B7AACC15295370DC0055C587 /* DataStorage.swift in Sources */,
 				B7AACC222954B2CC0055C587 /* PostDetailView.swift in Sources */,
@@ -626,6 +630,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "location-services gps";
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -665,6 +670,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "location-services gps";
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

@@ -51,7 +51,9 @@ struct MapView: View {
                     HStack {
                         Spacer()
                         Button() {
-                            self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                            withAnimation(.easeInOut(duration: 1)) {
+                                self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                            }
                         } label: {
                             Image(systemName: "location.north.circle")
                                 .resizable()

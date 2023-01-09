@@ -28,7 +28,7 @@ class Model: ObservableObject {
     @Published var isSignedIn: Bool = Auth.auth().currentUser?.uid != nil
         
     @Published var users: [Contributor] = []
-        
+            
     var locationManager = LocationManager()
     var uid: String?
         
@@ -61,10 +61,10 @@ class Model: ObservableObject {
             }
             self.users = updatedUsers
             
-            self.updateCurrentUser()
+            self.mapPostsToUsers()
             
-            print("updated users now " + String(self.users.count))
-        }) { error in
+            self.updateCurrentUser()
+            }) { error in
             print(error.localizedDescription)
         }
     }
@@ -73,7 +73,6 @@ class Model: ObservableObject {
         if let uid = self.uid, let currentUser = self.users.first(where: {$0.id == uid}) {
             self.currentUser = currentUser
         } else {
-            print("could not find user in users??!")
             self.currentUser = nil
         }
     }
@@ -87,16 +86,28 @@ class Model: ObservableObject {
             for (_, postDictValue) in postsDict {
                 if let postDict = postDictValue as? NSDictionary {
                     do {
-                        try updatedPosts.append(Post(from: postDict))
+                        let post = try Post(from: postDict)
+                        updatedPosts.append(post)
                     } catch {
                         print("something wrong with a post")
                     }
                 }
             }
+            
             self.posts = updatedPosts
-            print("updated posts now " + String(self.posts.count))
+            
+            self.mapPostsToUsers()
         }) { error in
             print(error.localizedDescription)
+        }
+    }
+    
+    func mapPostsToUsers() {
+        let postsByCreatorId = Dictionary(grouping: self.posts, by: \.creatorId)
+        self.users = self.users.map { user in
+            var user = user
+            user.posts = postsByCreatorId[user.id] ?? []
+            return user
         }
     }
 }

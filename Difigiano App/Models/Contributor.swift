@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Contributor: Identifiable, Equatable {
+struct Contributor: Hashable, Identifiable, Equatable {
     
     var id: String
     var points: Int = Int.random(in: 0...100)
@@ -63,5 +63,9 @@ struct Contributor: Identifiable, Equatable {
     
     static func == (lhs: Contributor, rhs: Contributor) -> Bool {
         lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
