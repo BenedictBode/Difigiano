@@ -11,7 +11,7 @@ import SwiftUI
 enum RankingMethod {
     case byPoints
     case byStickerCount
-    case byViews
+    case byLikes
 }
 
 struct LeaderBoardView: View {
@@ -22,14 +22,14 @@ struct LeaderBoardView: View {
     @State var sortingFunc = Contributor.compByPoints
     @State var rankingMethod = RankingMethod.byStickerCount
     
-    func sortedUsers(rankingMethod: RankingMethod, users: [Contributor], posts: [Post]) -> [Contributor] {
+    func sortedUsers(rankingMethod: RankingMethod, users: [Contributor], posts: [Post], likes: [String:[String]]) -> [Contributor] {
              switch rankingMethod {
              case .byPoints:
                  return users.sorted { $0.points > $1.points }
              case .byStickerCount:
                  return users.sorted { $0.posts.count > $1.posts.count }
-             case .byViews:
-                 return users.sorted { $0.posts.count > $1.posts.count }
+             case .byLikes:
+                 return users.sorted { $0.calculateLikes(likes: likes) > $1.calculateLikes(likes: likes) }
              }
          }
         
@@ -40,12 +40,11 @@ struct LeaderBoardView: View {
             Picker(selection: $rankingMethod, label: Text("Leaderboard")) {
                 Text("⭐️").tag(RankingMethod.byPoints)
                 Text("🧤").tag(RankingMethod.byStickerCount)
-                Text("👁️").tag(RankingMethod.byViews)
+                Text("❤️").tag(RankingMethod.byLikes)
             }.pickerStyle(SegmentedPickerStyle())
             List {
-                ForEach(sortedUsers(rankingMethod: rankingMethod, users: model.users, posts: model.posts)) { user in
-                    NavigationLink(destination: ProfileView(user: user,
-                                                            usersPosts: self.model.posts.filter({$0.creatorId == user.id})).environmentObject(model))
+                ForEach(sortedUsers(rankingMethod: rankingMethod, users: model.users, posts: model.posts, likes: model.likes)) { user in
+                    NavigationLink(destination: ProfileView(user: user))
                     {
                         HStack {
                             DifigianoAsyncImage(width: 50, imageURL: user.imageURL)
@@ -62,16 +61,11 @@ struct LeaderBoardView: View {
                                             Text(String(user.posts.count) + "🧤")
                                         .font(.system(size: 25))
                                         .bold()
-                                case .byViews:
-                                    Text(String(user.posts.count) + "👁️")
+                                case .byLikes:
+                                    Text(String(user.calculateLikes(likes: model.likes)) + "❤️")
                                         .font(.system(size: 25))
                                         .bold()
                                 }
-                                
-                                /*Image("points")
-                                    .resizable()
-                                    .frame(width: 25, height: 25)
-                                    .padding(2)*/
                             }
                         }
                     }

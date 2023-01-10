@@ -18,15 +18,13 @@ struct ProfileView: View {
     @State var shouldShowImagePicker = false
     
     var user: Contributor
-    var usersPosts: [Post]
-    var hasEditingRights = false
     
     private let topInfoFontSize = CGFloat(22)
     private let threeColumnGrid = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
         VStack {
-            EditableLabel($name, isEditingAllowed: hasEditingRights) {
+            EditableLabel($name, isEditingAllowed: hasEditingRights()) {
                 if name.count < 1 {
                     name = user.name
                 } else {
@@ -42,34 +40,30 @@ struct ProfileView: View {
             DifigianoAsyncImage(width: 150, imageURL: user.imageURL)
                 .clipShape(Circle())
                 .onTapGesture(count: 2) {
-                    shouldShowImagePicker = hasEditingRights
+                    shouldShowImagePicker = hasEditingRights()
                 }
             HStack {
                 VStack {
-                    //Image(systemName: "crown")
-                    Text("🧤")
+                    Text("⭐️")
                         .font( .system(size: topInfoFontSize))
-                        .padding(2)
-                    Text(String(usersPosts.count))
-                        .font( .system(size: topInfoFontSize))
-                }
-                .frame(maxWidth: .infinity)
-                VStack {
-                    //Image(systemName: "paperplane")
-                    Image("points")
-                        .resizable()
-                        .frame(width: topInfoFontSize, height: topInfoFontSize)
                         .padding(2)
                     Text(String(user.points))
                         .font( .system(size: topInfoFontSize))
                 }
                 .frame(maxWidth: .infinity)
                 VStack {
-                    //Image(systemName: "calendar")
-                    Text("🗓️")
-                        .font(.system(size: topInfoFontSize))
+                    Text("🧤")
+                        .font( .system(size: topInfoFontSize))
                         .padding(2)
-                    Text(usersPosts.min(by: {$0.timestamp < $1.timestamp})?.timestamp.formatted(date: .numeric, time: .omitted) ?? "-")
+                    Text(String(user.posts.count))
+                        .font( .system(size: topInfoFontSize))
+                }
+                .frame(maxWidth: .infinity)
+                VStack {
+                    Text("❤️")
+                        .font( .system(size: topInfoFontSize))
+                        .padding(2)
+                    Text(String(user.calculateLikes(likes: model.likes)))
                         .font( .system(size: topInfoFontSize))
                 }
                 .frame(maxWidth: .infinity)
@@ -90,7 +84,7 @@ struct ProfileView: View {
         .overlay() {
             if self.detailPost != nil {
                 PostDetailView(post: $detailPost,
-                               showsDeleteButton: self.hasEditingRights,
+                               showsDeleteButton: self.hasEditingRights(),
                                showsCreator: false)
                 .environmentObject(model)
             }
@@ -115,5 +109,9 @@ struct ProfileView: View {
                 DataStorage.persistToStorage(contributor: user)
             }
         }
+    }
+    
+    func hasEditingRights() -> Bool {
+        user == model.currentUser || (model.currentUser?.isAdmin ?? false)
     }
 }

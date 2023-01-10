@@ -18,6 +18,10 @@ struct Contributor: Hashable, Identifiable, Equatable {
     var timestamp: Date
     var posts: [Post] = []
     
+    func calculateLikes(likes: [String:[String]]) -> Int {
+        posts.compactMap {likes[$0.id.uuidString]?.count}.reduce(0, +)
+    }
+    
     static func compByPoints(user1: Contributor, user2: Contributor) -> Bool {
         user1.points > user2.points
     }

@@ -16,7 +16,7 @@ struct UserProfileView: View {
     var body: some View {
         VStack {
             if let currentUser = model.currentUser {
-                ProfileView(user: currentUser, usersPosts: self.model.posts.filter({$0.creatorId == currentUser.id}), hasEditingRights: true)
+                ProfileView(user: currentUser)
             }
             Button("sign out") {
                 Authentication.signOut()
