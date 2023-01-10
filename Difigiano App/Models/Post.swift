@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 import SwiftUI
 
-class Post: Identifiable {
+class Post: Identifiable, ObservableObject {
     
     static let defaultImage = UIImage(named: "Difigiano")!
     var id: UUID = UUID()

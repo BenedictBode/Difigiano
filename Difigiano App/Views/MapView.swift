@@ -46,8 +46,7 @@ struct MapView: View {
                 Spacer()
                 if self.detailPost != nil {
                     PostDetailView(post: $detailPost, showsDeleteButton: model.currentUser?.isAdmin ?? false).environmentObject(model)
-                }
-                if let lastLocation = self.lastLocation {
+                } else if let lastLocation = self.lastLocation {
                     HStack {
                         Spacer()
                         Button() {

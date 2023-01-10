@@ -18,6 +18,7 @@ class Model: ObservableObject {
         subscribeToSignedIn()
         subscribeToPosts()
         subscribeToUsers()
+        subscribeToLikes()
     }
     
     
@@ -28,6 +29,8 @@ class Model: ObservableObject {
     @Published var isSignedIn: Bool = Auth.auth().currentUser?.uid != nil
         
     @Published var users: [Contributor] = []
+    
+    @Published var likes: [String:[String]] = [:]
             
     var locationManager = LocationManager()
     var uid: String?
@@ -102,6 +105,17 @@ class Model: ObservableObject {
         }
     }
     
+    func subscribeToLikes() {
+        DataStorage.database.reference(withPath: "likes").observe(.value, with: { snapshot in
+            guard let updatedLikedBy = snapshot.value as? Dictionary<String, [String]> else {
+                return
+            }
+            self.likes = updatedLikedBy
+        }) { error in
+            print(error.localizedDescription)
+        }
+    }
+    
     func mapPostsToUsers() {
         let postsByCreatorId = Dictionary(grouping: self.posts, by: \.creatorId)
         self.users = self.users.map { user in
@@ -109,5 +123,26 @@ class Model: ObservableObject {
             user.posts = postsByCreatorId[user.id] ?? []
             return user
         }
+    }
+    
+    func likePressed(post: Post) {
+        if let currentUser = currentUser, post.creatorId != currentUser.id {
+            var likes = likes[post.id.uuidString] ?? []
+            if likes.contains(where: { $0 == currentUser.id })
+            {
+                likes.removeAll { $0 == currentUser.id }
+            } else {
+                likes.append(currentUser.id)
+            }
+            DataStorage.database.reference(withPath: "likes").child(post.id.uuidString).setValue(likes)
+        }
+    }
+    
+    func delete(post: Post) {
+        if var creator = users.first(where: {post.creatorId == $0.id}) {
+            creator.points -= post.points
+            DataStorage.persistToStorage(contributor: creator)
+        }
+        DataStorage.deleteFromStorage(post: post)
     }
 }

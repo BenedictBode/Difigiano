@@ -16,47 +16,54 @@ struct PostDetailView: View {
     
     var showsDeleteButton: Bool = false
     var showsCreator: Bool = true
-        
+    
     var body: some View {
         if let post = self.post {
             VStack() {
                 VStack(spacing: 10) {
-                    HStack{
-                        Text(post.timestamp.formatted())
-                            .font(.title)
-                        Spacer()
-                        Button() {
-                            self.post = nil
-                        } label: {
-                            Image(systemName: "xmark")
-                                .font(.system(size: 25))
-                                .foregroundColor(.accentColor)
-                                .shadow(radius: 2)
-                        }
-                    }
-                    
-                    DifigianoAsyncImage(imageURL: post.imageURL)
-                    
-                    if showsCreator {
-                        if let creator = model.users.first(where: {post.creatorId == $0.id}) {
-                            HStack {
-                                NavigationLink(destination: ProfileView(user: creator,
-                                                                        usersPosts: self.model.posts.filter({$0.creatorId == creator.id})).environmentObject(model))
-                                {
-                                    HStack {
-                                        DifigianoAsyncImage(width: 50, imageURL: creator.imageURL)
-                                        Text(creator.name)
-                                            .multilineTextAlignment(.leading)
-                                    }
-                                    
+                    if let creator = model.users.first(where: {post.creatorId == $0.id}) {
+                        HStack {
+                            NavigationLink(destination: ProfileView(user: creator))
+                            {
+                                HStack {
+                                    DifigianoAsyncImage(width: 50, imageURL: creator.imageURL)
+                                    Text(creator.name)
+                                        .multilineTextAlignment(.leading)
                                 }
-                                Spacer()
+                                
                             }
+                            Spacer()
+                            Button() {
+                                self.post = nil
+                            } label: {
+                                Image(systemName: "xmark")
+                                    .font(.system(size: 25))
+                                    .foregroundColor(.accentColor)
+                                    .shadow(radius: 2)
+                            }
+                            
                         }
                     }
+                    DifigianoAsyncImage(imageURL: post.imageURL)
+                        .onTapGesture(count: 2) {
+                            model.likePressed(post: post)
+                        }
+                    
+                    HStack {
+                        Text(post.timestamp.formatted())
+                            .font(.caption)
+                        Spacer()
+                    }
+                    
+                    
+                    LikeIndicator(post: post)
+                    
+                    
+                    
                     if showsDeleteButton {
                         Button() {
-                            delete(post: post)
+                            model.delete(post: post)
+                            self.post = nil
                         } label: {
                             Image(systemName: "trash")
                                 .font(.system(size: 25))
@@ -73,16 +80,8 @@ struct PostDetailView: View {
             .modifier(CardModifier())
             .padding()
         }
-    }
-    
-    func delete(post: Post) {
-        if var creator = model.users.first(where: {post.creatorId == $0.id}) {
-            creator.points -= post.points
-            DataStorage.persistToStorage(contributor: creator)
-        }
-        DataStorage.deleteFromStorage(post: post)
-        model.posts.removeAll(where: {$0.id == post.id})
-        self.post = nil
+        
+        
     }
     
 }

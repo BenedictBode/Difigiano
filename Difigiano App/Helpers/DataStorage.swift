@@ -40,6 +40,7 @@ class DataStorage {
         }
     }
     
+    
     static func persistToStorage(post: Post) {
         database.reference(withPath: "posts").child(post.id.uuidString).setValue(post.asDictonary())
     }
