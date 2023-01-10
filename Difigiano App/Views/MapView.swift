@@ -24,7 +24,7 @@ struct MapView: View {
     
     var body: some View {
         if model.posts != [] {
-            MapViewUI(location: model.posts.first!, places: model.posts, mapViewType: .standard)
+            MapViewUI(posts: model.posts)
                 .statusBar(hidden: true)
                 .edgesIgnoringSafeArea(.all)
                 .overlay() {
