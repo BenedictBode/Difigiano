@@ -8,8 +8,10 @@
 import Foundation
 import CoreLocation
 import SwiftUI
+import MapKit
 
-class Post: Identifiable {
+
+class Post: NSObject, Identifiable {
     
     static let defaultImage = UIImage(named: "Difigiano")!
     var id: UUID = UUID()
@@ -22,11 +24,11 @@ class Post: Identifiable {
     
     var timestamp: Date = Date()
     
-    enum RewardClass {
-        case toClose
-        case ground
-        case newRegion
-        case newCity
+    enum RewardClass: Int {
+        case toClose = 0
+        case ground = 1
+        case newRegion = 2
+        case newCity = 3
     }
     
     var points: Int {
@@ -125,5 +127,9 @@ class Post: Identifiable {
     
 }
 
-
+extension Post: MKAnnotation {
+var coordinate: CLLocationCoordinate2D { location.cllocation }
+    var title: String? { imageURL.absoluteString}
+    var subtitle: String? { String(rewardClass.rawValue) }
+}
 

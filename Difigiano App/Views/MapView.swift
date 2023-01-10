@@ -23,56 +23,48 @@ struct MapView: View {
     @State var lastLocation: Location?
     
     var body: some View {
-        Map(coordinateRegion: $region, annotationItems: model.posts) { post in
-            MapAnnotation(coordinate: post.location.cllocation) {
-                PostPreview(post: post, width: 45)
-                    .gesture(
-                        TapGesture()
-                            .onEnded { _ in
-                                self.detailPost = post
-                            }
-                    )
-            }
-        }
-        .statusBar(hidden: true)
-        .edgesIgnoringSafeArea(.all)
-        .overlay() {
-            VStack() {
-                HStack {
-                    Text(String(model.posts.count) + "🧤")
-                        .font(.system(size: 40))
-                        .bold()
-                }
-                Spacer()
-                if self.detailPost != nil {
-                    PostDetailView(post: $detailPost, showsDeleteButton: model.currentUser?.isAdmin ?? false).environmentObject(model)
-                }
-                if let lastLocation = self.lastLocation {
-                    HStack {
+        if model.posts != [] {
+            MapViewUI(location: model.posts.first!, places: model.posts, mapViewType: .standard)
+                .statusBar(hidden: true)
+                .edgesIgnoringSafeArea(.all)
+                .overlay() {
+                    VStack() {
+                        HStack {
+                            Text(String(model.posts.count) + "🧤")
+                                .font(.system(size: 40))
+                                .bold()
+                        }
                         Spacer()
-                        Button() {
-                            withAnimation(.easeInOut(duration: 1)) {
-                                self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                        if self.detailPost != nil {
+                            PostDetailView(post: $detailPost, showsDeleteButton: model.currentUser?.isAdmin ?? false).environmentObject(model)
+                        }
+                        if let lastLocation = self.lastLocation {
+                            HStack {
+                                Spacer()
+                                Button() {
+                                    withAnimation(.easeInOut(duration: 1)) {
+                                        self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                                    }
+                                } label: {
+                                    Image(systemName: "location.north.circle")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 40, height: 40)
+                                        .padding(20)
+                                }
                             }
-                        } label: {
-                            Image(systemName: "location.north.circle")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 40, height: 40)
-                                .padding(20)
                         }
                     }
                 }
-            }
-        }
-        .onChange(of: self.model.locationManager.lastLocation) { lastLocation in
-            self.lastLocation = lastLocation
-        }
-        .onAppear {
-            self.model.locationManager.requestLocation()
-            if let lastLocation = self.model.locationManager.lastLocation {
-                self.lastLocation = lastLocation
-            }
+                .onChange(of: self.model.locationManager.lastLocation) { lastLocation in
+                    self.lastLocation = lastLocation
+                }
+                .onAppear {
+                    self.model.locationManager.requestLocation()
+                    if let lastLocation = self.model.locationManager.lastLocation {
+                        self.lastLocation = lastLocation
+                    }
+                }
         }
     }
 }

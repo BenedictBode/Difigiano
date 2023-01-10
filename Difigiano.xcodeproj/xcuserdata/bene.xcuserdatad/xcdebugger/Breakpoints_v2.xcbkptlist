@@ -14,8 +14,8 @@
             filePath = "Difigiano App/Models/Post.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "init(from:)"
             landmarkType = "7">
             <Locations>
@@ -400,6 +400,102 @@
             endingLineNumber = "58"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "657AA545-83F3-4E16-9221-C329EE699A63"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Difigiano App/HelperViews/MapViewUI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "annotation"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "657AA545-83F3-4E16-9221-C329EE699A63 - 9537aa163100df4d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Difigiano.LocationDataMapClusterView.annotation.didset : Swift.Optional&lt;__C.MKAnnotation&gt;"
+                  moduleName = "Difigiano"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bene/Desktop/Difigiano%20App/Difigiano%20App/HelperViews/MapViewUI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "1304">
+               </Location>
+               <Location
+                  uuid = "657AA545-83F3-4E16-9221-C329EE699A63 - bb11c22d5dd59b46"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.MKAnnotation, __C.MKAnnotation) -&gt; Swift.Bool in Difigiano.LocationDataMapClusterView.annotation.didset : Swift.Optional&lt;__C.MKAnnotation&gt;"
+                  moduleName = "Difigiano"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bene/Desktop/Difigiano%20App/Difigiano%20App/HelperViews/MapViewUI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "148"
+                  endingLineNumber = "148"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1D05DBB8-40E7-4554-B6C0-8EE35A624D53"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Difigiano App/HelperViews/MapViewUI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "annotation"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "1D05DBB8-40E7-4554-B6C0-8EE35A624D53 - 65aa232a2737d580"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Difigiano.PostAnnotationView.annotation.didset : Swift.Optional&lt;__C.MKAnnotation&gt;"
+                  moduleName = "Difigiano"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bene/Desktop/Difigiano%20App/Difigiano%20App/HelperViews/MapViewUI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "1D05DBB8-40E7-4554-B6C0-8EE35A624D53 - 65aa232a2737d580"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Difigiano.PostAnnotationView.annotation.didset : Swift.Optional&lt;__C.MKAnnotation&gt;"
+                  moduleName = "Difigiano"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bene/Desktop/Difigiano%20App/Difigiano%20App/HelperViews/MapViewUI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "864">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
