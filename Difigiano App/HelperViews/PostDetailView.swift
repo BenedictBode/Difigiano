@@ -12,76 +12,35 @@ struct PostDetailView: View {
     @EnvironmentObject
     private var model: Model
     
-    @Binding var post: Post?
-    
-    var showsDeleteButton: Bool = false
-    var showsCreator: Bool = true
-    
+    var post: Post
+
     var body: some View {
-        if let post = self.post {
-            VStack() {
-                VStack(spacing: 10) {
-                    if let creator = model.users.first(where: {post.creatorId == $0.id}) {
+        VStack(spacing: 10) {
+            if let creator = model.users.first(where: {post.creatorId == $0.id}) {
+                HStack {
+                    NavigationLink(destination: ProfileView(user: creator))
+                    {
                         HStack {
-                            NavigationLink(destination: ProfileView(user: creator))
-                            {
-                                HStack {
-                                    DifigianoAsyncImage(width: 50, imageURL: creator.imageURL)
-                                    Text(creator.name)
-                                        .multilineTextAlignment(.leading)
-                                }
-                                
-                            }
-                            Spacer()
-                            Button() {
-                                self.post = nil
-                            } label: {
-                                Image(systemName: "xmark")
-                                    .font(.system(size: 25))
-                                    .foregroundColor(.accentColor)
-                                    .shadow(radius: 2)
-                            }
-                            
+                            DifigianoAsyncImage(width: 50, imageURL: creator.imageURL)
+                            Text(creator.name)
+                                .multilineTextAlignment(.leading)
                         }
+                        
                     }
-                    DifigianoAsyncImage(imageURL: post.imageURL)
-                        .onTapGesture(count: 2) {
-                            model.likePressed(post: post)
-                        }
-                    
-                    HStack {
-                        Text(post.timestamp.formatted())
-                            .font(.caption)
-                        Spacer()
-                    }
-                    
-                    
-                    LikeIndicator(post: post)
-                    
-                    
-                    
-                    if showsDeleteButton {
-                        Button() {
-                            model.delete(post: post)
-                            self.post = nil
-                        } label: {
-                            Image(systemName: "trash")
-                                .font(.system(size: 25))
-                                .foregroundColor(.accentColor)
-                        }
-                    }
+                    Spacer()
                 }
-                .padding()
-                
             }
-            .frame(maxWidth: .infinity, alignment: .center)
-            .background(post.color)
-            .foregroundColor(Color("foregroundColor"))
-            .modifier(CardModifier())
-            .padding()
+            DifigianoAsyncImage(imageURL: post.imageURL)
+                .onTapGesture(count: 2) {
+                    model.likePressed(post: post)
+                }
+            LikeIndicator(post: post)
+            HStack {
+                Text(post.timestamp.formatted())
+                    .font(.caption)
+                Spacer()
+            }
         }
-        
-        
     }
     
 }

@@ -18,12 +18,10 @@ struct MapView: View {
     
     @State var tracking: MapUserTrackingMode = .follow
     
-    @State var region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.1657, longitude: 10.45), span: MKCoordinateSpan(latitudeDelta: 5, longitudeDelta: 5))
-    
     @State var lastLocation: Location?
     
     var body: some View {
-        Map(coordinateRegion: $region, annotationItems: model.posts) { post in
+        Map(coordinateRegion: $model.region, annotationItems: model.posts) { post in
             MapAnnotation(coordinate: post.location.cllocation) {
                 PostPreview(post: post, width: 45)
                     .gesture(
@@ -38,20 +36,18 @@ struct MapView: View {
         .edgesIgnoringSafeArea(.all)
         .overlay() {
             VStack() {
-                HStack {
-                    Text(String(model.posts.count) + "🧤")
-                        .font(.system(size: 40))
-                        .bold()
-                }
+                Text(String(model.posts.count) + "🧤")
+                    .font(.system(size: 40))
+                    .bold()
                 Spacer()
                 if self.detailPost != nil {
-                    PostDetailView(post: $detailPost, showsDeleteButton: model.currentUser?.isAdmin ?? false).environmentObject(model)
+                    PostDetailCard(post: $detailPost)
                 } else if let lastLocation = self.lastLocation {
                     HStack {
                         Spacer()
                         Button() {
                             withAnimation(.easeInOut(duration: 1)) {
-                                self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                                model.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
                             }
                         } label: {
                             Image(systemName: "location.north.circle")

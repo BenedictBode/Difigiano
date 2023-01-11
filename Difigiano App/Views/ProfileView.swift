@@ -83,10 +83,7 @@ struct ProfileView: View {
         }
         .overlay() {
             if self.detailPost != nil {
-                PostDetailView(post: $detailPost,
-                               showsDeleteButton: self.hasEditingRights(),
-                               showsCreator: false)
-                .environmentObject(model)
+                PostDetailCard(post: $detailPost)
             }
         }
         .onAppear() {
