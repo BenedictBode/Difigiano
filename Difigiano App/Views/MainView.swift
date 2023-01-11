@@ -12,11 +12,14 @@ struct MainView: View {
     @EnvironmentObject
     private var model: Model
     
+    @State private var tabSelection = 1
+    
     var body: some View {
         
         if model.isSignedIn {
             NavigationView {
-                TabView{
+                TabView(selection: $tabSelection){
+                    
                     MapView()
                         .tabItem {
                             Label {
@@ -24,17 +27,17 @@ struct MainView: View {
                                 Image(systemName: "map.fill")
                             }
                         }
-                        .environmentObject(model)
                         .toolbarColorScheme(.light, for: .tabBar)
+                        .tag(1)
                     
-                    LeaderBoardView()
+                    FeedView(tabSelection: $tabSelection)
                         .tabItem {
                             Label {
                             } icon: {
-                                Image(systemName: "crown.fill")
+                                Image(systemName: "scroll")
                             }
                         }
-                        .environmentObject(model)
+                        .tag(0)
                     
                     UploadView()
                         .tabItem {
@@ -43,16 +46,16 @@ struct MainView: View {
                                 Image(systemName: "camera.fill")
                             }
                         }
-                        .environmentObject(model)
+                        .tag(2)
                     
-                    /*ShopView()
-                     .tabItem {
-                     Label {
-                     } icon: {
-                     Image(systemName: "bag.fill")
-                     }
-                     }
-                     .environmentObject(model)*/
+                    LeaderBoardView()
+                        .tabItem {
+                            Label {
+                            } icon: {
+                                Image(systemName: "crown.fill")
+                            }
+                        }
+                        .tag(3)
                     
                     UserProfileView()
                         .tabItem {
@@ -61,9 +64,10 @@ struct MainView: View {
                                 Image(systemName: "person.fill")
                             }
                         }
-                        .environmentObject(model)
+                        .tag(4)
                 }
             }
+            
         } else {
             LoginView()
         }

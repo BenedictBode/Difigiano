@@ -31,6 +31,8 @@ class Model: ObservableObject {
     @Published var users: [Contributor] = []
     
     @Published var likes: [String:[String]] = [:]
+    
+    @Published var region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.1657, longitude: 10.45), span: MKCoordinateSpan(latitudeDelta: 5, longitudeDelta: 5))
             
     var locationManager = LocationManager()
     var uid: String?
