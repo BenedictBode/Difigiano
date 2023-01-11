@@ -30,6 +30,8 @@
 		B79B0F4B295349360076368C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B79B0F4A295349360076368C /* FirebaseAuth */; };
 		B79B0F4D295349360076368C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B79B0F4C295349360076368C /* FirebaseStorage */; };
 		B7A59384296E03FE00F16AC2 /* LikeIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A59383296E03FE00F16AC2 /* LikeIndicator.swift */; };
+		B7A59387296E1E4800F16AC2 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = B7A59386296E1E4800F16AC2 /* FirebaseMessaging */; };
+		B7A59389296EBA3900F16AC2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B7A59388296EBA3900F16AC2 /* FirebaseAnalytics */; };
 		B7AACBFF2953545C0055C587 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AACBFE2953545C0055C587 /* LoginView.swift */; };
 		B7AACC02295355A10055C587 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7AACC01295355A10055C587 /* GoogleSignInSwift */; };
 		B7AACC0629535BB00055C587 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AACC0529535BB00055C587 /* Authentication.swift */; };
@@ -122,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7A59387296E1E4800F16AC2 /* FirebaseMessaging in Frameworks */,
 				B7AACC0929535CF80055C587 /* GoogleSignIn in Frameworks */,
 				B79B0F49295349360076368C /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				B79B0F4B295349360076368C /* FirebaseAuth in Frameworks */,
@@ -129,6 +132,7 @@
 				B79B0F4D295349360076368C /* FirebaseStorage in Frameworks */,
 				B7AACC1A29542DAB0055C587 /* FirebaseDatabase in Frameworks */,
 				B7AACC02295355A10055C587 /* GoogleSignInSwift in Frameworks */,
+				B7A59389296EBA3900F16AC2 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +161,7 @@
 				B79663A629531D7C0050BA58 /* Difigiano AppTests */,
 				B79663B029531D7C0050BA58 /* Difigiano AppUITests */,
 				B796639429531D7A0050BA58 /* Products */,
+				B7A59385296E1E4800F16AC2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -241,6 +246,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B7A59385296E1E4800F16AC2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B7AACC0E29536DA90055C587 /* HelperViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +321,8 @@
 				B7AACC0829535CF80055C587 /* GoogleSignIn */,
 				B7AACC0A29535CF80055C587 /* GoogleSignInSwift */,
 				B7AACC1929542DAB0055C587 /* FirebaseDatabase */,
+				B7A59386296E1E4800F16AC2 /* FirebaseMessaging */,
+				B7A59388296EBA3900F16AC2 /* FirebaseAnalytics */,
 			);
 			productName = "Difigiano App";
 			productReference = B796639329531D7A0050BA58 /* Difigiano.app */;
@@ -642,7 +656,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.benedict.Difigiano;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -682,7 +696,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.benedict.Difigiano;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -861,6 +875,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B79B0F47295349360076368C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		B7A59386296E1E4800F16AC2 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B79B0F47295349360076368C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		B7A59388296EBA3900F16AC2 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B79B0F47295349360076368C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 		B7AACC01295355A10055C587 /* GoogleSignInSwift */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -15,13 +15,16 @@
 			</array>
 		</dict>
 	</array>
-	<key>FirebaseAppDelegateProxyEnabled</key>
-	<false/>
 	<key>GIDClientID</key>
 	<string>233685813571-n431410mkj3hhttsnuvd7kli3g4m5u0o.apps.googleusercontent.com</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>UnifrakturMaguntia.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
 	</array>
 </dict>
 </plist>
