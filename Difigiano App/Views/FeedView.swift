@@ -11,7 +11,7 @@ import MapKit
 struct FeedView: View {
     
     @EnvironmentObject var model: Model
-    @Binding var tabSelection: Int
+    @Binding var tabSelection: TabifyItems
     
     var body: some View {
         ScrollView {
@@ -22,7 +22,7 @@ struct FeedView: View {
                         Button() {
                             withAnimation() {
                                 model.region = MKCoordinateRegion(center: post.location.cllocation, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-                                tabSelection = 1
+                                tabSelection = .home
                             }
                         } label: {
                             Image(systemName: "map")
