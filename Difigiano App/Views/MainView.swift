@@ -7,65 +7,40 @@
 
 import SwiftUI
 import FirebaseAuth
+import Tabify
+
 struct MainView: View {
+    @Environment(\.colorScheme) var colorScheme
     
     @EnvironmentObject
     private var model: Model
     
-    @State private var tabSelection = 1
+    @State private var tabSelection: TabifyItems = .home
     
     var body: some View {
         
         if model.isSignedIn {
             NavigationView {
-                TabView(selection: $tabSelection){
-                    
-                    MapView()
-                        .tabItem {
-                            Label {
-                            } icon: {
-                                Image(systemName: "map.fill")
-                            }
-                        }
-                        .toolbarColorScheme(.light, for: .tabBar)
-                        .tag(1)
+                Tabify(selectedItem: $tabSelection){
                     
                     FeedView(tabSelection: $tabSelection)
-                        .tabItem {
-                            Label {
-                            } icon: {
-                                Image(systemName: "scroll")
-                            }
-                        }
-                        .tag(0)
+                        .tabItem(for: TabifyItems.home)
+                    
+                    MapView()
+                        .tabItem(for: TabifyItems.map)
                     
                     UploadView()
-                        .tabItem {
-                            Label {
-                            } icon: {
-                                Image(systemName: "camera.fill")
-                            }
-                        }
-                        .tag(2)
+                        .tabItem(for: TabifyItems.camera)
                     
                     LeaderBoardView()
-                        .tabItem {
-                            Label {
-                            } icon: {
-                                Image(systemName: "crown.fill")
-                            }
-                        }
-                        .tag(3)
+                        .tabItem(for: TabifyItems.leaderboard)
                     
                     UserProfileView()
-                        .tabItem {
-                            Label {
-                            } icon: {
-                                Image(systemName: "person.fill")
-                            }
-                        }
-                        .tag(4)
+                        .tabItem(for: TabifyItems.profile)
+                    
                 }
+                .barStyle(style: CustomTabifyBarStyle(colorScheme: _colorScheme))
+                .itemStyle(style: CustomTabifyItemStyle())
             }
             
         } else {

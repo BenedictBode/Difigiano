@@ -134,6 +134,15 @@
         "revision" : "ab3a58b7209a17d781c0d1dbb3e1ff3da306bae8",
         "version" : "1.20.3"
       }
+    },
+    {
+      "identity" : "tabify",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bgeisb/Tabify",
+      "state" : {
+        "revision" : "6e128e62fad04e24ba94968cfadd13f81a3e1be4",
+        "version" : "1.0.0"
+      }
     }
   ],
   "version" : 2
