@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct PostDetailView: View {
     
@@ -34,7 +35,18 @@ struct PostDetailView: View {
                 .onTapGesture(count: 2) {
                     model.likePressed(post: post)
                 }
-            LikeIndicator(post: post)
+            HStack {
+                Button() {
+                    withAnimation() {
+                        model.region = MKCoordinateRegion(center: post.location.cllocation, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+                        model.tabSelection = .map
+                    }
+                } label: {
+                    Image(systemName: "map")
+                        .font(.system(size: 25))
+                }
+                LikeIndicator(post: post)
+            }
             HStack {
                 Text(post.timestamp.formatted())
                     .font(.caption)

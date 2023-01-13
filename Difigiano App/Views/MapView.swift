@@ -42,7 +42,9 @@ struct MapView: View {
                 Spacer()
                 if self.detailPost != nil {
                     PostDetailCard(post: $detailPost)
-                } else if let lastLocation = self.lastLocation {
+                    Spacer()
+                }
+                if let lastLocation = self.lastLocation {
                     HStack {
                         Spacer()
                         Button() {

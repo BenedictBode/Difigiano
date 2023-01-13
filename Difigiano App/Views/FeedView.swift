@@ -6,12 +6,10 @@
 //
 
 import SwiftUI
-import MapKit
 
 struct FeedView: View {
     
     @EnvironmentObject var model: Model
-    @Binding var tabSelection: TabifyItems
     
     var body: some View {
         ScrollView {
@@ -19,15 +17,6 @@ struct FeedView: View {
                 ForEach(model.posts.sorted(by: { $0.timestamp > $1.timestamp })) { post in
                     VStack {
                         PostDetailView(post: post)
-                        Button() {
-                            withAnimation() {
-                                model.region = MKCoordinateRegion(center: post.location.cllocation, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-                                tabSelection = .home
-                            }
-                        } label: {
-                            Image(systemName: "map")
-                                .font(.system(size: 20))
-                        }
                     }
                     .padding()
                 }

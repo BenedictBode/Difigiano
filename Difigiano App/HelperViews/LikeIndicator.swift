@@ -18,13 +18,8 @@ struct LikeIndicator: View {
                 model.likePressed(post: post)
             } label: {
                 Image(systemName: heartImageName())
-                    .font(.system(size: 40))
+                    .font(.system(size: 25))
                     .foregroundColor(.red)
-                    .overlay() {
-                        if let likeCount = model.likes[post.id.uuidString]?.count {
-                            Text(String(likeCount))
-                        }
-                    }
             }
             ScrollView(.horizontal) {
                 HStack(spacing: 4) {
