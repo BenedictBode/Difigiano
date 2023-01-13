@@ -14,6 +14,8 @@ struct PostDetailView: View {
     private var model: Model
     
     var post: Post
+    
+    @State var addressString: String?
 
     var body: some View {
         VStack(spacing: 10) {
@@ -26,9 +28,10 @@ struct PostDetailView: View {
                             Text(creator.name)
                                 .multilineTextAlignment(.leading)
                         }
-                        
+                    
                     }
                     Spacer()
+                    Text(pointsToString())
                 }
             }
             DifigianoAsyncImage(imageURL: post.imageURL)
@@ -48,9 +51,35 @@ struct PostDetailView: View {
                 LikeIndicator(post: post)
             }
             HStack {
-                Text(post.timestamp.formatted())
+                Text((addressString ?? "") + post.timestamp.formatted())
                     .font(.caption)
                 Spacer()
+            }
+        }.onAppear() {
+            loadAddressString()
+        }
+    }
+    
+    func pointsToString() -> String {
+        var pointsString = ""
+        for _ in 1...post.points {
+            pointsString += "⭐️"
+        }
+        
+        return pointsString
+    }
+    
+    func loadAddressString() {
+        let address = CLGeocoder.init()
+        address.reverseGeocodeLocation(CLLocation.init(latitude: post.location.latitude, longitude:post.location.longitude)) { (placemarks, error) in
+            if (error != nil)
+            {
+                print("reverse geodcode fail: \(error!.localizedDescription)")
+            }
+            
+            if let placemark =  placemarks?.first, let locality = placemark.locality{
+                let addressString = locality + ", "
+                self.addressString = addressString
             }
         }
     }
