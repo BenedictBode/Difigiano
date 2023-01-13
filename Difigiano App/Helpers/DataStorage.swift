@@ -16,6 +16,17 @@ class DataStorage {
     static let storage = Storage.storage()
     static let database = Database.database()
     
+    static func loadImage(url: URL, completion: @escaping (UIImage) -> ()) {
+        DispatchQueue.global().async {
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        completion(image)
+                    }
+                }
+            }
+        }
+    }
     
     static func persistToStorage(image: UIImage, path: String, completion: @escaping (URL) -> ()) {
         

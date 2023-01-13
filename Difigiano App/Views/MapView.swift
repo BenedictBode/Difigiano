@@ -21,7 +21,7 @@ struct MapView: View {
     @State var lastLocation: Location?
     
     var body: some View {
-        Map(coordinateRegion: $model.region, annotationItems: model.posts) { post in
+        /*Map(coordinateRegion: $model.region, annotationItems: model.posts) { post in
             MapAnnotation(coordinate: post.location.cllocation) {
                 PostPreview(post: post, width: 45)
                     .gesture(
@@ -31,7 +31,8 @@ struct MapView: View {
                             }
                     )
             }
-        }
+        }*/
+        MapViewUI(posts: model.posts, selectedPost: $detailPost, region: $model.region)
         .statusBar(hidden: true)
         .edgesIgnoringSafeArea(.all)
         .overlay() {

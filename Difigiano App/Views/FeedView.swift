@@ -21,7 +21,7 @@ struct FeedView: View {
                         PostDetailView(post: post)
                         Button() {
                             withAnimation() {
-                                model.region = MKCoordinateRegion(center: post.location.cllocation, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+                                model.region = MKCoordinateRegion(center: post.location.cllocation, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
                                 tabSelection = 1
                             }
                         } label: {
