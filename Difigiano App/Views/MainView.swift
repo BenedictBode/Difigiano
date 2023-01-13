@@ -15,15 +15,13 @@ struct MainView: View {
     @EnvironmentObject
     private var model: Model
     
-    @State private var tabSelection: TabifyItems = .home
-    
     var body: some View {
         
         if model.isSignedIn {
             NavigationView {
-                Tabify(selectedItem: $tabSelection){
+                Tabify(selectedItem: $model.tabSelection){
                     
-                    FeedView(tabSelection: $tabSelection)
+                    FeedView()
                         .tabItem(for: TabifyItems.home)
                     
                     MapView()

@@ -21,6 +21,7 @@ class Model: ObservableObject {
         subscribeToLikes()
     }
     
+    @Published var tabSelection: TabifyItems = .home
     
     @Published var currentUser: Contributor?
     

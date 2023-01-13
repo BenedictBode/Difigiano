@@ -19,29 +19,28 @@ struct PostDetailCard: View {
         if let post = self.post {
             VStack{
                 VStack(spacing: 10) {
+                    PostDetailView(post: post)
                     HStack {
+                        if canDelete() {
+                            HStack {
+                                Button() {
+                                    model.delete(post: post)
+                                    self.post = nil
+                                } label: {
+                                    Image(systemName: "trash")
+                                        .font(.system(size: 15))
+                                        .foregroundColor(.accentColor)
+                                }
+                                Spacer()
+                            }
+                        }
                         Spacer()
                         Button() {
                             self.post = nil
                         } label: {
                             Image(systemName: "xmark")
-                                .font(.system(size: 25))
+                                .font(.system(size: 15))
                                 .foregroundColor(.accentColor)
-                                .shadow(radius: 2)
-                        }
-                    }
-                    PostDetailView(post: post)
-                    if canDelete() {
-                        HStack {
-                            Button() {
-                                model.delete(post: post)
-                                self.post = nil
-                            } label: {
-                                Image(systemName: "trash")
-                                    .font(.system(size: 25))
-                                    .foregroundColor(.accentColor)
-                            }
-                            Spacer()
                         }
                     }
                 }
