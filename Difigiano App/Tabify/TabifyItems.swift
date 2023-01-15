@@ -17,7 +17,7 @@ enum TabifyItems: Int, TabifyItem {
     
     var icon: String {
         switch self {
-            case .home: return "scroll"
+            case .home: return "scroll.fill"
             case .map: return "map.fill"
             case .camera: return "camera.fill"
             case .leaderboard: return "crown.fill"

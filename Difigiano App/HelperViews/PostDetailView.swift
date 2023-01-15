@@ -77,11 +77,28 @@ struct PostDetailView: View {
                 print("reverse geodcode fail: \(error!.localizedDescription)")
             }
             
-            if let placemark =  placemarks?.first, let locality = placemark.locality{
-                let addressString = locality + ", "
-                self.addressString = addressString
+            if let placemark =  placemarks?.first {
+                var addressString = ""
+                
+                if let countryCode = placemark.isoCountryCode {
+                    addressString += flag(country: countryCode) + " "
+                }
+                
+                if let locality = placemark.locality {
+                    addressString += locality + ", "
+                    self.addressString = addressString
+                }
             }
         }
+    }
+    
+    func flag(country:String) -> String {
+        let base : UInt32 = 127397
+        var s = ""
+        for v in country.unicodeScalars {
+            s.unicodeScalars.append(UnicodeScalar(base + v.value)!)
+        }
+        return String(s)
     }
     
 }
