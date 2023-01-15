@@ -8,19 +8,20 @@
 import SwiftUI
 
 
-enum RankingMethod {
-    case byPoints
-    case byStickerCount
-    case byLikes
-}
+
 
 struct LeaderBoardView: View {
     
     @EnvironmentObject
     private var model: Model
     
-    @State var sortingFunc = Contributor.compByPoints
     @State var rankingMethod = RankingMethod.byStickerCount
+    
+    enum RankingMethod {
+        case byPoints
+        case byStickerCount
+        case byLikes
+    }
     
     func sortedUsers(rankingMethod: RankingMethod, users: [Contributor], posts: [Post], likes: [String:[String]]) -> [Contributor] {
              switch rankingMethod {
