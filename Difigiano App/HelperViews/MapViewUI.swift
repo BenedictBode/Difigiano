@@ -28,8 +28,8 @@ struct MapViewUI: UIViewRepresentable {
             context.coordinator.clusterManager.removeAll()
             for post in posts {
                 let annotation = Annotation(coordinate: post.location.cllocation)
-                annotation.title = post.previewImageURL.absoluteString
-                //annotation.subtitle = String(post.rewardClass.rawValue)
+                annotation.title = post.id.uuidString
+                annotation.subtitle = String(post.points)
                 context.coordinator.clusterManager.add(annotation)
             }
             context.coordinator.posts = posts
@@ -57,11 +57,25 @@ struct MapViewUI: UIViewRepresentable {
         
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
             if let annotation = annotation as? ClusterAnnotation {
-                return LocationDataMapClusterView(annotation: annotation, reuseIdentifier: "cluster")
+                if let post = postFor(annotation: annotation.annotations.sorted(by: {MapCoordinator.sortBySubtitle(left: $0, right: $1)}).first!) {
+                    return PostAnnotationView(annotation: annotation, reuseIdentifier: "cluster", post: post, selectedPost: $selectedPost, region: $region, count: annotation.annotations.count)
+                }
+                return MKAnnotationView(annotation: annotation, reuseIdentifier: "error")
                 
             } else {
-                return PostAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+                if let post = postFor(annotation: annotation) {
+                    return PostAnnotationView(annotation: annotation, reuseIdentifier: "pin", post: post, selectedPost: $selectedPost, region: $region)
+                }
+                return MKAnnotationView(annotation: annotation, reuseIdentifier: "error")
             }
+        }
+        
+        static func sortBySubtitle(left: MKAnnotation, right: MKAnnotation) -> Bool {
+            Int((left.subtitle ?? "-1") ?? "-1") ?? -1 > Int((right.subtitle ?? "-1") ?? "-1") ?? -1
+        }
+        
+        func postFor(annotation: MKAnnotation) -> Post? {
+            posts.first(where: { $0.id.uuidString == annotation.title })
         }
 
         func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
@@ -71,11 +85,7 @@ struct MapViewUI: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
-            if let title = annotation.title as? String {
-                region = mapView.region
-                selectedPost = posts.first(where: { $0.previewImageURL.absoluteString == title })
-            }
-            
+        
         }
         
     }
@@ -83,61 +93,91 @@ struct MapViewUI: UIViewRepresentable {
 }
 
 final class PostAnnotationView: MKAnnotationView {
-    
-    override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
-        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         
+    var post: Post
+    @Binding private var selectedPost: Post?
+    @Binding var region: MKCoordinateRegion
+        
+    init(annotation: MKAnnotation?, reuseIdentifier: String?, post: Post, selectedPost: Binding<Post?>, region: Binding<MKCoordinateRegion>, count: Int? = nil) {
+        
+        self.post = post
+        _selectedPost = selectedPost
+        _region = region
+        
+        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         centerOffset = CGPoint(x: 0, y: -frame.size.height / 2)
         canShowCallout = false
         backgroundColor = .clear
         
-        
-        let annotationView = AnnotationView(imageURL: URL(string: ((annotation?.title as? String) ?? "")))
+        let annotationView = AnnotationView(imageURL: post.previewImageURL, borderColor: Post.color(for: post.rewardClass))
+        annotationView.isUserInteractionEnabled = true
         addSubview(annotationView)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        annotationView.addGestureRecognizer(tap)
+        
+        if let count = count {
+            let label = UILabel(frame: frame)
+            label.frame = bounds
+            label.font = .systemFont(ofSize: 20)
+            label.textColor = .white
+            label.textAlignment = .center
+            label.text = String(count)
+            addSubview(label)
+        }
     }
 
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        region = MKCoordinateRegion(center: post.location.cllocation, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        selectedPost = post
+    }
 }
 
-final class LocationDataMapClusterView: MKAnnotationView {
+/*final class LocationDataMapClusterView: MKAnnotationView {
+    
+    var imageURL: URL?
     
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
-        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-        frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        centerOffset = CGPoint(x: 0, y: -frame.size.height / 2)
-        backgroundColor = .clear
-        
+
         guard let annotation = annotation as? ClusterAnnotation else {
+            super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
             return
         }
         
         let presentedAnnotation = annotation.annotations.first
-        let annotationView = AnnotationView(imageURL: URL(string: ((presentedAnnotation?.title as? String) ?? "")))
+        
+        imageURL = URL(string: ((presentedAnnotation?.title as? String) ?? ""))
+        
+        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
+        
+        frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        centerOffset = CGPoint(x: 0, y: -frame.size.height / 2)
+        backgroundColor = .clear
+        
+        let annotationView = AnnotationView(imageURL: imageURL)
         addSubview(annotationView)
         
-        let label = UILabel(frame: frame)
-        label.frame = bounds
-        label.font = .systemFont(ofSize: 20)
-        label.textColor = .white
-        label.textAlignment = .center
-        label.text = String(annotation.annotations.count)
-        addSubview(label)
+        
     }
 
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
+}*/
 
 class AnnotationView: UIImageView {
             
-    init(imageURL: URL?) {
+    init(imageURL: URL?, borderColor: Color) {
         super.init(image: UIImage(named:"Difigiano50x")!)
+        layer.borderColor = UIColor(borderColor).cgColor
+        layer.borderWidth = 4
         layer.cornerRadius = 6
         clipsToBounds = true
         
@@ -154,6 +194,8 @@ class AnnotationView: UIImageView {
             self.image = image
         }
     }
+    
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
