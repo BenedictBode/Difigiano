@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 import SwiftUI
 
-class Post: Identifiable, ObservableObject {
+class Post: Identifiable, ObservableObject, Equatable {
     
     static let defaultImage = UIImage(named: "Difigiano")!
     var id: UUID = UUID()
@@ -121,6 +121,10 @@ class Post: Identifiable, ObservableObject {
         self.imageURL = imageURL
         self.previewImageURL = previewImageURL
         self.dist = dist
+    }
+    
+    static func == (lhs: Post, rhs: Post) -> Bool {
+        lhs.id == rhs.id
     }
     
 }
